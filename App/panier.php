@@ -35,7 +35,6 @@ class Panier
 
 
 
-
     public function getContenu()
     {
         return $contenu;
@@ -46,6 +45,7 @@ class Panier
         $this->contenu = $contenu;
     }
 
+    
 
     public function getUser()
     {
