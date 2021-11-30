@@ -12,56 +12,86 @@ $ConnexionBDD = New ConnexionBDD ('mysql-aubonresto.alwaysdata.net','aubonresto_
 <body>
 <?php include('./Templates/nav.php');?>
 
-<form method="post" id="formInscription">
+<div class="bannerTitle imgReg"></div>
+
     <div class="container ">
-
-        <h2> Inscription <h2>
-                <div class="form-row">
+                <form class="row g-3 needs-validation forms" method="post" novalidate>
                     <div class="col-md-6">
-                        <label for="name"> name : </label>
-                        <input type="name" name="name" id="name" class="form-control" placeholder="Smith" >
+                        <label for="name" class="form-label">Nom</label>
+                        <input type="name" name="name" id="name" class="form-control" placeholder="Parker" required>
+                        <div class="invalid-feedback">
+                            Ce champ est obligatoire.
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="firstname" class="form-label">Prénom</label>
+                        <input type="text" name="firstname" id="firstname" class="form-control" placeholder="Jean" required>
+                        <div class="invalid-feedback">
+                            Ce champ est obligatoire.
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="phone" class="form-label">Téléphone</label>
+                        <input type="phone" name="phone" id="phone" class="form-control" placeholder="06 23 56 84 12" required>
+                        <div class="invalid-feedback">
+                            Ce champ est obligatoire.
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="address" class="form-label">Adresse</label>
+                        <input type="text" name="address" id="address" class="form-control" placeholder="12 rue de paris, 75001"  required>
+                        <div class="invalid-feedback">
+                            Ce champ est obligatoire.
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="name@exemple.com" required >
+                        <div class="invalid-feedback">
+                            Ce champ est obligatoire.
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="password" class="form-label">Mot de passe</label>
+                        <input type="password" name="password" id="password" class="form-control" minlength="6" placeholder="6 caratère minimum" required>
+                        <div class="invalid-feedback">
+                            Ce champ est obligatoire.
+                        </div>
                     </div>
 
-                    <div class="col-md-6">
-                        <label for="firstname"> firstname : </label>
-                        <input type="firstname" name="firstname" id="firstname" class="form-control" placeholder="Jean" >
+                    <div class="col-md-12">
+                        <button class="btn btn-primary text-center submit" type="submit">S'inscrire</button>
                     </div>
-                </div>
+                    <div class="Messages"></div>
+
+                </form>
 
 
-                <div class="form-row">
-                    <div class="col-md-6">
-                        <label for="email"> E-mail : </label>
-                        <input type="email" name="email" id="email" class="form-control" placeholder="name@exemple.com" >
-                    </div>
-
-                    <div class="col-md-6">
-                        <label for="phone"> Télephone : </label>
-                        <input type="phone" name="phone" id="phone" class="form-control" placeholder="06 23 56 84 12" >
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="col-md-6">
-                        <label for="address"> address : </label>
-                        <input type="address" name="address" id="address" class="form-control" placeholder="12 rue de paris, 75001" >
-                    </div>
-
-                    <div class="col-md-6">
-                        <label for="password"> Mot de passe : </label>
-                        <input type="password" name="password" id="password" class="form-control" minlength="6" placeholder="6 caratère minimum">
-                    </div>
-                </div>
-                <div class="mb-3 text-center">
-                    <button class="btn btn-primary" name="submit" id="buttonInscription" type="button"> Valider l'inscription </button>
-                </div>
 
 
     </div>
-    <div class="Messages"></div>
-</form>
 
 <script>
+(function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+
     $(document).ready(function(){
         $("#buttonInscription").click(function() {
             var nameuser = $("input[name=name]").val();

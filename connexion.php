@@ -11,30 +11,30 @@ $ConnexionBDD = New ConnexionBDD ('mysql-aubonresto.alwaysdata.net','aubonresto_
 ?>
 <body>
 <?php include('./Templates/nav.php');?>
-<form method="post" id="formConnexion">
-    <div class="container ">
+<div class="bannerTitle imgCon"></div>
+<div class="container  ">
+    <form method="post" class="row g-3 forms " id="formCon">
 
-        <h2> Connectez-vous <h2>
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label for="login" class="form-label"> Login : </label>
+                <input type="email" name="login" id="login" class="form-control" placeholder="nom@exemple.com" >
+            </div>
+            <div class="col-md-6">
+                <label for="password" class="form-label"> Mot de passe : </label>
+                <input type="password" name="password" id="password" class="form-control" minlength="6" placeholder="6 caratère minimum">
+            </div>
+            <div class="col-md-12">
+                <button class="btn btn-primary submit" name="submit" id="buttonConn" type="button"> Accéder à mon compte </button>
+            </div>
 
-                <div class="form-row">
-                    <div class="col-md-6">
-                        <label for="login"> Login : </label>
-                        <input type="login" name="login" id="login" class="form-control" placeholder="NomPrenom75" >
-                    </div>
-
-                    <div class="col-md-6">
-                        <label for="password"> Mot de passe : </label>
-                        <input type="password" name="password" id="password" class="form-control" minlength="6" placeholder="6 caratère minimum">
-                    </div>
-                </div>
-                <div class="mb-3 text-center">
-                    <button class="btn btn-primary" name="submit" id="buttonConn" type="button"> Accéder à mon compte </button>
-                </div>
+        </div>
+        <div class="Messages"></div>
+    </form>
 
 
-    </div>
-    <div class="Messages"></div>
-</form>
+
+</div>
 
 <script>
     $(document).ready(function(){

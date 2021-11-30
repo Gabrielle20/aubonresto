@@ -5,7 +5,7 @@
 <body>
 
 <div><?php include('./Templates/nav.php');?></div>
-<div class="bannerTitle"></div>
+<div class="bannerTitle imgTitle"></div>
 
 <div class="container">
     <div class="selecMoment text-center">

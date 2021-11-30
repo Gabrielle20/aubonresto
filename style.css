@@ -1,15 +1,29 @@
 body {
     position: relative;
+    font-family: Arial;
 }
 
-.bannerTitle{
+
+.imgTitle{
     background-image: url("./images/banner.png");
+    height: 50vh;
+}
+.imgReg{
+    background-image: url("./images/bannerReg.png");
+    height: 20vh;
+}
+.imgCon{
+    background-image: url("./images/bannerCon.png");
+    height: 20vh;
+}
+.bannerTitle{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 100%;
-    height: 50vh;
     display: block;
 }
+
+
 .selecMoment{
     margin-top: 3%;
     margin-bottom: 5%;
@@ -18,7 +32,10 @@ body {
 }
 .reservBtn{
     margin-bottom: 15%;
-    font-size: 2em;
+    font-size: 30px;
+    height: 60%;
+    width: 100%;
+    font-style: italic;
 }
 .selecMoment h2{
     font-size: 60px;
@@ -31,5 +48,26 @@ body {
 
 .cardMoment{
     margin: 15px auto 5em auto;
+}
+.submit{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+.forms{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+    box-shadow: 5px 5px 5px 5px #BFBFBF ;
+    padding: 10px;
+}
+.form-label{
+    font-size: 20px;
+}
+
+#formCon{
+    margin-top: 2em;
 }
 
