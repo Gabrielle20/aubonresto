@@ -1,26 +1,33 @@
 <head>
-<title>AuBonResto</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <title>Bon Mange Lakay</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
 </head>
 <!-- Responsive navbar -->
-  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <!--  Display three horizontal lines when navbar collapsed. -->
-          <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a href="#" class="navbar-brand">Au bon Resto</a>
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="index.php">AuBonResto</a>
-      </div>
-      <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="index.php">Accueil</a></li>
-          <li><a href="commande.php">Commander</a></li>
-          <li><a href="connexion.php">Mon compte</a></li>
-        </ul>
-      </div>
-
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav">
+                <a href="#" class="nav-item nav-link active">Réserver une Table</a>
+                <a href="#" class="nav-item nav-link">Entrée</a>
+                <a href="#" class="nav-item nav-link">Plats</a>
+                <a href="#" class="nav-item nav-link" tabindex="-1">Desserts</a>
+            </div>
+            <div class="navbar-nav ms-auto">
+                <a href="connexion.php" class="nav-item nav-link">Connexion</a>
+                <a href="#" class="nav-item nav-link">Inscription</a>
+            </div>
+        </div>
     </div>
-  </div>
+</nav>
