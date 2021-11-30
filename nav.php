@@ -13,7 +13,7 @@
 <!-- Responsive navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a href="#" class="navbar-brand">Au bon Resto</a>
+        <a href="index.php" class="navbar-brand">Au bon Resto</a>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>

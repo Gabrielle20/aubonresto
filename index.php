@@ -11,27 +11,6 @@
 
 <body>
 <div><?php include('nav.php');?></div>
-</body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <div class="container footer">
