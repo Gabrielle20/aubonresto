@@ -1,8 +1,10 @@
 <?php
 
+include_once '../class/bdd/connexionbdd.php';
 require_once('C:\Users\deladjonks\Documents\projectResto\aubonresto\vendor\fpdf\fpdf\original\fpdf.php');
 
-
+$ConnexionBDD = New ConnexionBDD ('mysql-aubonresto.alwaysdata.net','aubonresto_db','250765_dbuser','aubonrestobg95');
+$conn = $ConnexionBDD->OpenCon();
 
 class myPDF extends FPDF{
     function header(){
@@ -31,16 +33,23 @@ class myPDF extends FPDF{
         $this->Cell(40,10,'total panier',1,0,'C');
         $this->Ln();
     }
-    function viewTable(){
+    function viewTable($conn){
+        $ConnexionBDD = New ConnexionBDD ('mysql-aubonresto.alwaysdata.net','aubonresto_db','250765_dbuser','aubonrestobg95');
+        $conn = $ConnexionBDD->OpenCon();
         $this->SetFont('Times','',12);
+        $stmt = ('SELECT * FROM panier');
+        $result = $ConnexionBDD->getResults($conn,$stmt);
+        while($row = $result->fetch_row()){
         $this->Cell(20,10,'',0,0,'C');
         $this->Cell(20,10,'',0,0,'C');
         $this->Cell(20,10,'',0,0,'C');
         $this->Cell(20,10,'',0,0,'C');
-        $this->Cell(20,10,'Bokit',1,0,'C');
-        $this->Cell(40,10,'Valider',1,0,'C');
-        $this->Cell(40,10,'15'.' euro',1,0,'C');
+        $this->Cell(20,10,$row[2],1,0,'C');
+        $this->Cell(40,10,utf8_decode($row[4]),1,0,'C');
+        $this->Cell(40,10,$row[3],1,0,'C');
         $this->Ln();
+        }
+
     }
 }
 
@@ -48,5 +57,5 @@ $pdf = new myPDF();
 $pdf->AliasNbPages();
 $pdf->AddPage('L','A4',0);
 $pdf->headerTable();
-$pdf->viewTable();
+$pdf->viewTable($conn);
 $pdf->Output();
