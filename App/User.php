@@ -2,7 +2,7 @@
 
 namespace App;
 
-class User 
+class User
 {
     private string $name;
     private string $firstname;

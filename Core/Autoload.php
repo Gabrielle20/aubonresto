@@ -1,6 +1,6 @@
 <?php
 
-class Autoload 
+class Autoload
 {
 
     // récupère les classes
