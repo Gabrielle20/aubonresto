@@ -1,27 +1,69 @@
 <html>
 
-<head>
-    <title>Bon Mange Lakay</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
-</head>
+<?php include('./Templates/headHtml.html')?>
 
 <body>
-<div><?php include('nav.php');?></div>
 
+<div><?php include('./Templates/nav.php');?></div>
+<div class="bannerTitle"></div>
 
-<div class="container footer">
+<div class="container">
+    <div class="selecMoment text-center">
+        <h2>Notre sélection du moment</h2>
+    </div>
+    <div class="row cardMoment">
+        <div class="col sm-4">
+            <div class="card" style="width: 100%;">
+                <img src="./Images/assortiment.jpg" class="card-img-top imageCard" alt="assortiment">
+                <div class="card-body">
+                    <h5 class="text-center card-title">Assortiments d'entrées Chaudes</h5>
+                    <p class="card-text">Brochettes, acras, Samoussas... bref c incroyable</p>
+                    <div class="text-center">
+                    <a href="#" class="btn btn-success text-center" style="width: 80%">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col sm-4">
+            <div class="card" style="width: 100%;">
+                <img src="./Images/flan.jpg" class="card-img-top imageCard" alt="Flan">
+                <div class="card-body">
+                    <h5 class="text-center card-title">Flan coco caramel</h5>
+                    <p class="card-text">Aussi sucré qu'un tismé.</p>
+                    <div class="text-center">
+                        <a href="#" class="btn btn-success text-center" style="width: 80%">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col sm-4">
+            <div class="card" style="width: 100%;">
+                <img src="./Images/colombo.jpg" class="card-img-top imageCard" alt="...">
+                <div class="card-body">
+                    <h5 class="text-center card-title">Colombo accompagné de riz basmati</h5>
+                    <p class="card-text">La base antillaise</p>
+                    <div class="text-center">
+                        <a href="#" class="btn btn-success text-center" style="width: 80%">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col sm-6">
+        <a class="btn btn-outline-success reservBtn" href="#">🍴Envie de se faire plaisir avant le 15 Janvier ?🍴 </br> Réservez donc ici pour manger sur place</a>
+        </div>
+        <div class="col sm-6">
+        <a class="btn btn-outline-info reservBtn" href="#">🍴Pas la possibilité de manger sur place?🍴 </br> Commander  donc ici pour manger sur place</a>
+        </div>
+    </div>
 
-    <footer class="text-lg-start mt-xl-5 pt-4 text-white">
-
-        <p class="footer">© 2021 Au Bon Resto / Bon Manjé Lakay</p>
-
-    </footer>
 
 </div>
+
+
+
+<?php include('./Templates/footerHtml.html')?>
 
 
 

@@ -2,12 +2,34 @@ body {
     position: relative;
 }
 
-footer {
-    position: absolute;
-    bottom: 0;
-    left: 0; right: 0;
-    background-color: black;
+.bannerTitle{
+    background-image: url("./images/banner.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 100%;
+    height: 50vh;
+    display: block;
 }
-.footer{
-    text-align: center;
+.selecMoment{
+    margin-top: 3%;
+    margin-bottom: 5%;
+    width: 100%;
+    border-bottom: solid black ;
 }
+.reservBtn{
+    margin-bottom: 15%;
+    font-size: 2em;
+}
+.selecMoment h2{
+    font-size: 60px;
+    font-style: italic;
+    font-weight: bolder;
+}
+.imageCard{
+    height: 230px;
+}
+
+.cardMoment{
+    margin: 15px auto 5em auto;
+}
+

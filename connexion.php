@@ -1,13 +1,16 @@
+<html>
 <?php
 
 include_once './class/bdd/connexionbdd.php';
 include_once './class/connexion/formconnexion.php';
 
-include('nav.php');
+include './Templates/headHtml.html';
 //----------------------------------------------------------------------------------------------
 
 $ConnexionBDD = New ConnexionBDD ('mysql-aubonresto.alwaysdata.net','aubonresto_db','250765_dbuser','aubonrestobg95');// Appel de la class
 ?>
+<body>
+<?php include('./Templates/nav.php');?>
 <form method="post" id="formConnexion">
     <div class="container ">
 
@@ -86,4 +89,7 @@ $ConnexionBDD = New ConnexionBDD ('mysql-aubonresto.alwaysdata.net','aubonresto_
         });
     });
 </script>
+
+<?php include "./Templates/footerHtml.html"?>
+</body>
 
