@@ -26,7 +26,7 @@
             </div>
             <div class="navbar-nav ms-auto">
                 <a href="connexion.php" class="nav-item nav-link">Connexion</a>
-                <a href="#" class="nav-item nav-link">Inscription</a>
+                <a href="inscription.php" class="nav-item nav-link">Inscription</a>
             </div>
         </div>
     </div>
