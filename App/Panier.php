@@ -2,7 +2,7 @@
 
 namespace App;
 
-class Panier 
+class Panier
 {
     private int $total = 0;
     private string $statut;
