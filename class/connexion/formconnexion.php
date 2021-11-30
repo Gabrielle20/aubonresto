@@ -6,8 +6,6 @@ class FormConnexion{
 	private $login;
 	private $password;
 
-
-
 	public function __construct(string $login, string $password){	
 
 		$this->login = $login;
@@ -25,11 +23,13 @@ class FormConnexion{
  			
  			$message=false;
 			if (!empty($this->login) AND !empty($this->password) ) {
-				$ConnexionOk=false;
+				$ConnexionOk = false;
  				$UserExist=verifUser($this->login,$this->password);
 				 //-----------------------------------------------------------
 				if ($UserExist){
 					$ConnexionOk=TRUE;
+				}else{
+					$ConnexionOk=false;
 				}
 				//afficher les resultat en json
 			      $tab["ConnexionOk"]=$ConnexionOk;

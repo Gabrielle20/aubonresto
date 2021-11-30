@@ -36,7 +36,18 @@ function verifUser($login,$password){
     $ConnexionBDD = New ConnexionBDD ('mysql-aubonresto.alwaysdata.net','aubonresto_db','250765_dbuser','aubonrestobg95');
     $conn = $ConnexionBDD->OpenCon();
 
-    $request =  ("SELECT email_user, pass_user FROM users WHERE email_user='$login' AND pass_user='$password'");
-    return $ConnexionBDD->getResults($conn,$request);
+    $request =  ("SELECT COUNT(*) FROM users WHERE email_user='$login' AND pass_user='$password'");
+
+    $result = $ConnexionBDD->getResults($conn,$request);
+    while($row= $result->fetch_row()){
+        for ($i=0; $i <sizeof($row) ; $i++) {
+            if ($row[0] == 1) {
+                return TRUE;
+            } else {
+                return false;
+            }
+        }
+    }
+
 }
 ?>
