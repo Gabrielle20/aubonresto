@@ -1,10 +1,12 @@
 <?php
-
+$pathRoot = $_SERVER['DOCUMENT_ROOT'];
 include_once '../class/bdd/connexionbdd.php';
-require_once('C:\Users\deladjonks\Documents\projectResto\aubonresto\vendor\fpdf\fpdf\original\fpdf.php');
+require_once($pathRoot.'./vendor/fpdf/fpdf/original/fpdf.php');
 
 $ConnexionBDD = New ConnexionBDD ('mysql-aubonresto.alwaysdata.net','aubonresto_db','250765_dbuser','aubonrestobg95');
 $conn = $ConnexionBDD->OpenCon();
+
+
 
 class myPDF extends FPDF{
     function header(){
@@ -28,7 +30,8 @@ class myPDF extends FPDF{
         $this->Cell(20,10,'',0,0,'C');
         $this->Cell(20,10,'',0,0,'C');
         $this->Cell(20,10,'',0,0,'C');
-        $this->Cell(20,10,'articles',1,0,'C');
+        $this->Cell(20,10,'Articles',1,0,'C');
+        $this->Cell(20,10,'Prix',1,0,'C');
         $this->Cell(40,10,'statut panier',1,0,'C');
         $this->Cell(40,10,'total panier',1,0,'C');
         $this->Ln();
@@ -37,19 +40,29 @@ class myPDF extends FPDF{
         $ConnexionBDD = New ConnexionBDD ('mysql-aubonresto.alwaysdata.net','aubonresto_db','250765_dbuser','aubonrestobg95');
         $conn = $ConnexionBDD->OpenCon();
         $this->SetFont('Times','',12);
-        $stmt = ('SELECT * FROM panier');
+        $stmt = ("SELECT * FROM panier ");
         $result = $ConnexionBDD->getResults($conn,$stmt);
+        $total = 0;
         while($row = $result->fetch_row()){
         $this->Cell(20,10,'',0,0,'C');
         $this->Cell(20,10,'',0,0,'C');
         $this->Cell(20,10,'',0,0,'C');
         $this->Cell(20,10,'',0,0,'C');
         $this->Cell(20,10,$row[2],1,0,'C');
+        $this->Cell(20,10,$row[3],1,0,'C');
         $this->Cell(40,10,utf8_decode($row[4]),1,0,'C');
-        $this->Cell(40,10,$row[3],1,0,'C');
         $this->Ln();
+        $total += $row[2];
         }
-
+        $this->Cell(20,10,'',0,0,'C');
+        $this->Cell(20,10,'',0,0,'C');
+        $this->Cell(20,10,'',0,0,'C');
+        $this->Cell(20,10,'',0,0,'C');
+        $this->Cell(20,10,'',0,0,'C');
+        $this->Cell(20,10,'',0,0,'C');
+        $this->Cell(20,10,'',0,0,'C');
+        $this->Cell(20,10,'',0,0,'C');
+        $this->Cell(40,10,$total.' Euro',1,0,'C');
     }
 }
 
