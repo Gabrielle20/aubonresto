@@ -71,3 +71,7 @@ body {
     margin-top: 2em;
 }
 
+.sidebar:hover{
+    background-color: #F79405;
+}
+
