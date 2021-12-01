@@ -1,6 +1,5 @@
 <?php
 
-include('db_manager.php');
 
 function MailExist($mail){
     $ConnexionBDD = New ConnexionBDD ();

@@ -71,7 +71,9 @@ body {
     margin-top: 2em;
 }
 
-.fas{
+.sidebar:hover{
+    background-color: #F79405;
+}.fas{
     font-size: 36px;
     color: white;
 }
