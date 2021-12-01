@@ -94,3 +94,11 @@ body {
         width: 30%;
     }
 }
+
+
+
+
+/* template création d'article */
+.new-article > .form-group {
+    margin-bottom:10px;
+}

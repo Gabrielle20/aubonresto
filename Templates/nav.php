@@ -14,18 +14,19 @@
                                     <a href="../getarticles.php?articles=plats" class="nav-item nav-link">Plats</a>
                                     <a href="../getarticles.php?articles=desserts" class="nav-item nav-link" tabindex="-1">Desserts</a>
                                     <a href="../getarticles.php?articles=boissons" class="nav-item nav-link" tabindex="-1">Boissons</a>
+                                    <a href="../getarticles.php?articles=new" class="nav-item nav-link" tabindex="-1">Nouvel Article</a>
                                 </div>
                                 <div class="dropdown navbar-nav ms-auto">
                                     <i class="fas fa-user-circle"
                                        id="dropdownProfilButton"
-                                       data-bs-toggle="dropdown" aria-expanded="false"
-                                    ></i>
+                                       data-bs-toggle="dropdown" aria-expanded="false">
+                                    </i>
 
-                                    </img>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownProfilButton">
                                         <li><a class="dropdown-item" href="../pageprofile.php">Afficher mon profil</a></li>
                                         <li><a class="dropdown-item" href="../logOut.php">Déconnexion</a></li>
                                     </ul>
+                                    
                                 </div>
                             </div>
                         </div>

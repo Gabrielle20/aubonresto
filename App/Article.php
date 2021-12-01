@@ -139,18 +139,31 @@ class Article
 
 
 
-
+    /**
+     * Création d'un nouvel article
+     *
+     * @param array $article
+     * @return void
+     */
     public function addArticle(array $article) {
-
+        
         if (!empty($article)) {
-            $query = "INSERT INTO articles (name_article, type_article, prix_article, description_article) VALUES (:name_article, :type_article, :prix_article, :description_article)";
+            $name = $article["name_article"];
+            $type = $article["type_article"];
+            $prix = $article["prix_article"];
+            $desc = $article["description_article"];
 
-            if (mysqli_query($conn, $query)) {
-                echo "New record created successfully";
+            $query = "INSERT INTO articles (name_article, type_article, prix_article, description_article) VALUES ('$name', '$type', '$prix', '$desc')";
+            
+            if (mysqli_query($this->conn, $query)) {
+                echo "L'article a bien été créé";
             } else {
-                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                echo "Error: " . $sql . "<br>" . mysqli_error($this->conn);
             }
         }
     }
+
+
+
 
 }

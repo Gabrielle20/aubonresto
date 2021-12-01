@@ -56,7 +56,9 @@ if (!empty($_GET) && isset($_GET['articles']) && $_GET['articles'] === "boissons
 
 // Création d'un nouvel article
 if (!empty($_SESSION['id_user'])) {
-    $newArticle = $data->addArticle($_POST);
+    if (!empty($_GET) && isset($_GET['articles']) && $_GET['articles'] === "new" && !isset($_GET['id'])) {
+        $newArticle = $data->addArticle($_POST);
 
-    include ROOT."/Templates/Articles/new.php";
+        include ROOT."/Templates/Articles/new.php";
+    }
 }
