@@ -8,17 +8,19 @@ class formInscription{
     private $email;
     private $phone;
     private $address;
+    private $key_chiffrement;
     private $password;
 
 
 
-    public function __construct(string $name, string $firstname, string $email, int $phone,  string $address, string $password){
+    public function __construct(string $name, string $firstname, string $email, int $phone,  string $address, string $key_chiffrement, string $password){
 
         $this->name = $name;
         $this->firstname = $firstname;
         $this->email = $email;
         $this->phone = $phone;
         $this->address = $address;
+        $this->key_chiffrement = $key_chiffrement;
         $this->password = $password;
 
     }
@@ -37,6 +39,9 @@ class formInscription{
     public function Getaddress(){
         return $this->address;
     }
+    public function GetKey(){
+        return $this->key_chiffrement;
+    }
     public function GetPassword(){
         return $this->password;
     }
@@ -49,7 +54,7 @@ class formInscription{
             $mailExist=MailExist($this->email);
             //-----------------------------------------------------------
             if ((!$mailExist)) {
-                InsertUser($this->name,$this->firstname,$this->email,$this->phone,$this->address,$this->password);
+                InsertUser($this->name,$this->firstname,$this->email,$this->phone,$this->address,$this->key_chiffrement,$this->password);
                 $inscriptionOk=TRUE;
             }
             else{
@@ -77,12 +82,9 @@ class formInscription{
             $out .= "<p> phone : ".$this->phone."</p>";
         }
         $out .= "<p> address : ".$this->address."</p>";
+        $out .= "<p> Key: ". $this->key_chiffrement ."</p>";
         $out .= "<p> Mot de passe: ". $this->password ."</p>";
         return $out;
     }
-
 }
-
-
-
 ?>

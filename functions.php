@@ -1,5 +1,7 @@
 <?php
 
+include('db_manager.php');
+
 function MailExist($mail){
     $ConnexionBDD = New ConnexionBDD ('mysql-aubonresto.alwaysdata.net','aubonresto_db','250765_dbuser','aubonrestobg95');
     $conn = $ConnexionBDD->OpenCon();
@@ -19,12 +21,12 @@ function MailExist($mail){
     }
 }
 // function qui insère les données du user dans la bdd
-function InsertUser($name,$firstname,$email,$phone,$address,$password){
+function InsertUser($name,$firstname,$email,$phone,$address,$key,$password){
     $ConnexionBDD = New ConnexionBDD ('mysql-aubonresto.alwaysdata.net','aubonresto_db','250765_dbuser','aubonrestobg95');
     $conn = $ConnexionBDD->OpenCon();
     // Verifie que le login n'existe pas
-    $request =  ("INSERT INTO `users`(id_user,type_user,name_user,firstname_user,email_user,phone_user,address_user,pass_user)
-              VALUES (NULL,'user', '$name','$firstname' ,'$email','$phone','$address','$password')");
+    $request =  ("INSERT INTO `users`(id_user,type_user,name_user,firstname_user,email_user,phone_user,address_user,key_chiffrement,pass_user)
+              VALUES (NULL,'user', '$name','$firstname' ,'$email','$phone','$address','$key','$password')");
     $verification = $ConnexionBDD->getResults($conn,$request);
     if($verification){
         return TRUE;
@@ -49,5 +51,14 @@ function verifUser($login,$password){
         }
     }
 
+}
+//fonction qui genere une clé aleatoire
+function random_key($length=20){
+    $chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $string = '';
+    for($i=0; $i<$length; $i++){
+        $string .= $chars[rand(0, strlen($chars)-1)];
+    }
+    return $string;
 }
 ?>
