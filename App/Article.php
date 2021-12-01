@@ -1,7 +1,8 @@
 <?php
 
-namespace App;
+// namespace App;
 
+require_once "./class/bdd/connexionbdd.php";
 
 class Article
 {
@@ -9,6 +10,16 @@ class Article
     private string $name;
     private string $description;
     private string $type;
+
+    private $ConnexionBDD;
+    private $conn;
+
+
+    public function __construct() {
+        $this->ConnexionBDD = New ConnexionBDD ();
+        $this->conn = $this->ConnexionBDD->OpenCon();
+
+    }
 
 
     public function getType() {
@@ -44,5 +55,54 @@ class Article
     public function setDescription(string $description) {
         $this->description = $description;
     }
+
+
+
+    /**
+     * Récupère tous les articles
+     *
+     * @return void
+     */
+    public function getArticles() {
+
+        $query = ("SELECT * FROM articles");
+        $result = mysqli_query($this->conn, $query);
+        $articles = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+        return $articles;
+
+    }
+
+
+
+    /**
+     * Récupère les articles de type plats
+     *
+     * @return void
+     */
+    public function getPlats() {
+
+        $query = ("SELECT * FROM articles WHERE type_article = 'plats'");
+        $result = mysqli_query($this->conn, $query);
+        $plats = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+        return $plats;
+    }
+
+
+
+    /**
+     * Récupère les articles de type desserts
+     *
+     * @return void
+     */
+    public function getDesserts() {
+        $query = ("SELECT * FROM articles WHERE type_article = 'desserts'");
+        $result = mysqli_query($this->conn, $query);
+        $desserts = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+        return $desserts;
+    }
+    
 
 }

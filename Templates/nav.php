@@ -10,9 +10,9 @@
                             <div class="collapse navbar-collapse" id="navbarCollapse">
                                 <div class="navbar-nav">
                                     <a href="#" class="nav-item nav-link active">Réserver une Table</a>
-                                    <a href="#" class="nav-item nav-link">Entrée</a>
-                                    <a href="#" class="nav-item nav-link">Plats</a>
-                                    <a href="#" class="nav-item nav-link" tabindex="-1">Desserts</a>
+                                    <a href="../getarticles.php?articles=entrees" class="nav-item nav-link">Entrées</a>
+                                    <a href="../getarticles.php?articles=plats" class="nav-item nav-link">Plats</a>
+                                    <a href="../getarticles.php?articles=desserts" class="nav-item nav-link" tabindex="-1">Desserts</a>
                                 </div>
                                 <div class="navbar-nav ms-auto">
                                     <a href="../pageprofile.php" class="nav-item nav-link">Afficher mon profil</a>
@@ -32,9 +32,9 @@
                             <div class="collapse navbar-collapse" id="navbarCollapse">
                                 <div class="navbar-nav">
                                     <a href="#" class="nav-item nav-link active">Réserver une Table</a>
-                                    <a href="#" class="nav-item nav-link">Entrée</a>
-                                    <a href="#" class="nav-item nav-link">Plats</a>
-                                    <a href="#" class="nav-item nav-link" tabindex="-1">Desserts</a>
+                                    <a href="../getarticles.php?articles=entrees" class="nav-item nav-link">Entrées</a>
+                                    <a href="../getarticles.php?articles=plats" class="nav-item nav-link">Plats</a>
+                                    <a href="../getarticles.php?articles=desserts" class="nav-item nav-link" tabindex="-1">Desserts</a>
                                 </div>
                                 <div class="navbar-nav ms-auto">
                                     <a href="../connexion.php" class="nav-item nav-link">Connexion</a>
