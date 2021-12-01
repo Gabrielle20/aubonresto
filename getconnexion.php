@@ -11,7 +11,7 @@ if(!empty($_POST)){
     $password = $_POST['password'];
 
     //connexion a la base de donnéesafin de récuperer la clé de chiffrement
-    $ConnexionBDD = New ConnexionBDD ('mysql-aubonresto.alwaysdata.net','aubonresto_db','250765_dbuser','aubonrestobg95');
+    $ConnexionBDD = New ConnexionBDD ();
     $conn = $ConnexionBDD->OpenCon();
 
     $request =  ("SELECT key_chiffrement FROM users WHERE email_user='$login'");

@@ -9,17 +9,14 @@ session_start();
 
 class ConnexionBDD{
 
-	private $servername;
-	private $dbname;
-	private $username;
-	private $password;
 
-	public function __construct( string $servername, string $dbname, string $username, string $password){
+    private $conn;
 
-		$this->servername = $servername;
-		$this->dbname = $dbname;
-		$this->username = $username;
-		$this->password = $password;
+	public function __construct(){
+
+        include $_SERVER['DOCUMENT_ROOT']."/login_bdd.php";
+        $this->conn = mysqli_connect($configBdd['servername'], $configBdd['username'], $configBdd['password'],$configBdd['dbname']);
+
 
 	}
 	public function ServerName(){
@@ -36,13 +33,12 @@ class ConnexionBDD{
 	}
 	public function OpenCon()
 	{
-		$conn = mysqli_connect($this->servername, $this->username, $this->password,$this->dbname);
-		if (!$conn){
+		if (!$this->conn){
 			error_log("Connect failed");
 		}
-		$conn->set_charset('utf8');
+		$this->conn->set_charset('utf8');
  
-		return $conn;
+		return $this->conn;
 	}
 	public function CloseCon($conn)
 	{

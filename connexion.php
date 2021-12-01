@@ -7,7 +7,7 @@ include_once './class/connexion/formconnexion.php';
 include './Templates/headHtml.html';
 //----------------------------------------------------------------------------------------------
 
-$ConnexionBDD = New ConnexionBDD ('mysql-aubonresto.alwaysdata.net','aubonresto_db','250765_dbuser','aubonrestobg95');// Appel de la class
+$ConnexionBDD = New ConnexionBDD ();// Appel de la class
 ?>
 <body>
 <?php include('./Templates/nav.php');?>

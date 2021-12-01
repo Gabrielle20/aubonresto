@@ -7,7 +7,7 @@ include_once './class/inscription/forminscription.php';
 include './Templates/headHtml.html';
 
 //----------------------------------------------------------------------------------------------
-$ConnexionBDD = New ConnexionBDD ('mysql-aubonresto.alwaysdata.net','aubonresto_db','250765_dbuser','aubonrestobg95');// Appel de la class
+$ConnexionBDD = New ConnexionBDD ();// Appel de la class
 ?>
 <body>
 <?php include('./Templates/nav.php');?>
@@ -28,7 +28,7 @@ $ConnexionBDD = New ConnexionBDD ('mysql-aubonresto.alwaysdata.net','aubonresto_
                     </div>
                     <div class="col-md-6">
                         <label for="phone" class="form-label">Téléphone</label>
-                        <input type="phone" name="phone" id="phone" class="form-control" placeholder="06 23 56 84 12" required>
+                        <input type="tel" name="phone" id="phone" class="form-control" placeholder="06 23 56 84 12" pattern="[0-9]{10}" minlength="10" required>
 
                     </div>
                     <div class="col-md-6">
@@ -76,75 +76,72 @@ $ConnexionBDD = New ConnexionBDD ('mysql-aubonresto.alwaysdata.net','aubonresto_
                         event.stopPropagation()
                         $('.Messages').append(`
                                 <div class="alert alert-danger text-center mt-4" role="alert">
-                                    Veuillez remplir tous les champs!
+                                    Veuillez remplir correctement tous les champs!
                                 </div>
                         `);
                     }
+                    var nameuser = $("input[name=name]").val();
+                    var firstname = $("input[name=firstname]").val();
+                    var email = $("input[name=email]").val();
+                    var phone = $("input[name=phone]").val();
+                    var address = $("input[name=address]").val();
+                    var pwd = $("input[name=password]").val();
+
+                    var form_data = new FormData();
+                    form_data.append('name',nameuser);
+                    form_data.append('firstname',firstname) ;
+                    form_data.append('email', email);
+                    form_data.append('phone',phone);
+                    form_data.append('address',address);
+                    form_data.append('password',pwd);
+
+                    $.ajax({
+                        type: "post",
+                        dataType : 'json',
+                        url: "getinscription.php",
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        data:form_data,
+                        success: function(data, statut){
+                            console.log(data.check)
+                            // Contenue en cas de réussite
+                            $(".Messages").children().remove();
+                            if (data.check.errorMessage){
+
+                                $('.Messages').append(`
+                                <div class="alert alert-danger text-center mt-4" role="alert">
+                                    Veuillez remplir correctement tous les champs!
+                                </div>
+                            `);
+                            }else{
+
+                                if(data.check.mailExist){
+                                    $('.Messages').append(`
+                                    <div class="alert alert-danger text-center mt-4" role="alert">
+                                        L'addresse email est déjà prise !
+                                    </div>
+                                `);
+                                }
+                                if(data.check.inscriptionOk){
+                                    $('.Messages').append(`
+                                    <div class="alert alert-success text-center mt-4" role="alert">
+                                       	Inscription réussie!
+                                    </div>
+                                `);
+                                    $('#formInscription').reset();
+                                }
+                            }
+
+                        }
+                    });
 
                     form.classList.add('was-validated')
                 }, false)
             })
     })()
 
-    $(document).ready(function(){
-        $("#buttonInscription").click(function() {
-            var nameuser = $("input[name=name]").val();
-            var firstname = $("input[name=firstname]").val();
-            var email = $("input[name=email]").val();
-            var phone = $("input[name=phone]").val();
-            var address = $("input[name=address]").val();
-            var pwd = $("input[name=password]").val();
 
-            var form_data = new FormData();
-            form_data.append('name',nameuser);
-            form_data.append('firstname',firstname) ;
-            form_data.append('email', email);
-            form_data.append('phone',phone);
-            form_data.append('address',address);
-            form_data.append('password',pwd);
-
-            $.ajax({
-                type: "post",
-                dataType : 'json',
-                url: "getinscription.php",
-                cache: false,
-                contentType: false,
-                processData: false,
-                data:form_data,
-                success: function(data, statut){
-                    console.log(data.check)
-                    // Contenue en cas de réussite
-                    $(".Messages").children().remove();
-                    if (data.check.errorMessage){
-
-                        $('.Messages').append(`
-                                <div class="alert alert-danger text-center mt-4" role="alert">
-                                    Veuillez remplir tous les champs!
-                                </div>
-                            `);
-                    }else{
-
-                        if(data.check.mailExist){
-                            $('.Messages').append(`
-                                    <div class="alert alert-danger text-center mt-4" role="alert">
-                                        L'addresse email est déjà prise !
-                                    </div>
-                                `);
-                        }
-                        if(data.check.inscriptionOk){
-                            $('.Messages').append(`
-                                    <div class="alert alert-success text-center mt-4" role="alert">
-                                       	Inscription réussie!
-                                    </div>
-                                `);
-                            $('#formInscription').reset();
-                        }
-                    }
-
-                }
-            });
-        });
-    });
 </script>
 
 <?php include './Templates/footerHtml.html' ?>

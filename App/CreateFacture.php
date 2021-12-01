@@ -3,12 +3,9 @@ $pathRoot = $_SERVER['DOCUMENT_ROOT'];
 include_once '../class/bdd/connexionbdd.php';
 require_once($pathRoot.'./vendor/fpdf/fpdf/original/fpdf.php');
 
-$ConnexionBDD = New ConnexionBDD ('mysql-aubonresto.alwaysdata.net','aubonresto_db','250765_dbuser','aubonrestobg95');
-$conn = $ConnexionBDD->OpenCon();
-
-
 
 class myPDF extends FPDF{
+
     function header(){
         $this->SetFont('Arial','B',14);
         $this->Cell(276,5,'FACTURE',0,0,'C');
@@ -18,7 +15,7 @@ class myPDF extends FPDF{
         $this->Ln(20);
     }
     function footer(){
-        $this->Image('C:\Users\deladjonks\Documents\projectResto\aubonresto\images\bonAppetit.jpg',100,100,100);
+        $this->Image( $_SERVER['DOCUMENT_ROOT'].'\images\bonAppetit.jpg',100,100,100);
         $this->SetY(-15);
         $this->SetFont('Arial','',8);
         date_default_timezone_set('Europe/Paris');
@@ -30,15 +27,15 @@ class myPDF extends FPDF{
         $this->Cell(20,10,'',0,0,'C');
         $this->Cell(20,10,'',0,0,'C');
         $this->Cell(20,10,'',0,0,'C');
-        $this->Cell(30,10,'Articles',1,0,'C');
+        $this->Cell(20,10,'Articles',1,0,'C');
         $this->Cell(20,10,'Prix',1,0,'C');
         $this->Cell(40,10,'statut panier',1,0,'C');
         $this->Cell(40,10,'total panier',1,0,'C');
         $this->Ln();
     }
-    function viewTable($conn){
+    function viewTable(){
         $idUser = $_SESSION['id_user'];
-        $ConnexionBDD = New ConnexionBDD ('mysql-aubonresto.alwaysdata.net','aubonresto_db','250765_dbuser','aubonrestobg95');
+        $ConnexionBDD = New ConnexionBDD();
         $conn = $ConnexionBDD->OpenCon();
         $this->SetFont('Times','',12);
         $stmt = ("SELECT * FROM panier WHERE id_user = " . $idUser);
@@ -50,7 +47,6 @@ class myPDF extends FPDF{
         $this->Cell(20,10,'',0,0,'C');
         $this->Cell(20,10,'',0,0,'C');
         $this->Cell(30,10,$row[2],1,0,'C');
-        $this->Cell(20,10,$row[3],1,0,'C');
         $this->Cell(40,10,utf8_decode($row[4]),1,0,'C');
         $this->Cell(40,10,'',1,0,'C');
         $this->Ln();
@@ -72,5 +68,5 @@ $pdf = new myPDF();
 $pdf->AliasNbPages();
 $pdf->AddPage('L','A4',0);
 $pdf->headerTable();
-$pdf->viewTable($conn);
+$pdf->viewTable();
 $pdf->Output();
