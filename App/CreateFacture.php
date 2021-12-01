@@ -30,17 +30,18 @@ class myPDF extends FPDF{
         $this->Cell(20,10,'',0,0,'C');
         $this->Cell(20,10,'',0,0,'C');
         $this->Cell(20,10,'',0,0,'C');
-        $this->Cell(20,10,'Articles',1,0,'C');
+        $this->Cell(30,10,'Articles',1,0,'C');
         $this->Cell(20,10,'Prix',1,0,'C');
         $this->Cell(40,10,'statut panier',1,0,'C');
         $this->Cell(40,10,'total panier',1,0,'C');
         $this->Ln();
     }
     function viewTable($conn){
+        $idUser = $_SESSION['id_user'];
         $ConnexionBDD = New ConnexionBDD ('mysql-aubonresto.alwaysdata.net','aubonresto_db','250765_dbuser','aubonrestobg95');
         $conn = $ConnexionBDD->OpenCon();
         $this->SetFont('Times','',12);
-        $stmt = ("SELECT * FROM panier ");
+        $stmt = ("SELECT * FROM panier WHERE id_user = " . $idUser);
         $result = $ConnexionBDD->getResults($conn,$stmt);
         $total = 0;
         while($row = $result->fetch_row()){
@@ -48,11 +49,12 @@ class myPDF extends FPDF{
         $this->Cell(20,10,'',0,0,'C');
         $this->Cell(20,10,'',0,0,'C');
         $this->Cell(20,10,'',0,0,'C');
-        $this->Cell(20,10,$row[2],1,0,'C');
+        $this->Cell(30,10,$row[2],1,0,'C');
         $this->Cell(20,10,$row[3],1,0,'C');
         $this->Cell(40,10,utf8_decode($row[4]),1,0,'C');
+        $this->Cell(40,10,'',1,0,'C');
         $this->Ln();
-        $total += $row[2];
+        $total += $row[3];
         }
         $this->Cell(20,10,'',0,0,'C');
         $this->Cell(20,10,'',0,0,'C');
@@ -61,7 +63,7 @@ class myPDF extends FPDF{
         $this->Cell(20,10,'',0,0,'C');
         $this->Cell(20,10,'',0,0,'C');
         $this->Cell(20,10,'',0,0,'C');
-        $this->Cell(20,10,'',0,0,'C');
+        $this->Cell(30,10,'',0,0,'C');
         $this->Cell(40,10,$total.' Euro',1,0,'C');
     }
 }
