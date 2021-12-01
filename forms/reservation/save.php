@@ -1,11 +1,11 @@
 <?php
-include ROOT."/Templates/nav.php"; 
+include_once "../Templates/nav.php"; 
 
 
 ?>
  <!DOCTYPE html>
 <html lang="fr">
-<?php include('./Templates/headHtml.html')?>
+<?php include('../Templates/headHtml.html')?>
 <body>
 <div class="container">
     <div class="selecMoment text-center">
@@ -44,7 +44,7 @@ include ROOT."/Templates/nav.php";
         </div>
     </div>
 </div>
-<script>
+<!-- <script>
     $(document).ready(function(){
         $("#reserverbtn").click(function() {
             var date_reservation = $("input[name=date_reservation]").val();
@@ -80,6 +80,6 @@ include ROOT."/Templates/nav.php";
             });
         });
     });
-</script>
+</script> -->
 </body>
 </html>

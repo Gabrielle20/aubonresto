@@ -1,7 +1,7 @@
 <?php
 // namespace App;
 
-include_once "./class/bdd/connexionbdd.php"; 
+include_once "../class/bdd/connexionbdd.php"; 
 
 class Reservation
 {
@@ -72,7 +72,7 @@ class Reservation
         }
         // $tab["reservation_validee"]=$resOk; 
         // return (json_encode($tab)); 
-        include ROOT."/forms/reservation/save.php"; 
+        include "../forms/reservation/save.php"; 
     }
 
     public function getReservations()
@@ -82,5 +82,6 @@ class Reservation
         
         $tabreservations = $resGetRes[0];  
         var_dump($tabreservations); 
+        // return()
     }
 }
