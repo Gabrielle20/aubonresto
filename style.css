@@ -71,3 +71,24 @@ body {
     margin-top: 2em;
 }
 
+.fas{
+    font-size: 36px;
+    color: white;
+}
+.dropdown{
+    position: relative;
+}
+
+@media (min-width: 1000px) {
+    .dropdown-menu[data-bs-popper]{
+        margin-right: 10%;
+        position: absolute;
+        right: 0;
+        left:inherit;
+    }
+}
+@media (max-width: 999px) {
+    .dropdown-menu[data-bs-popper]{
+        width: 30%;
+    }
+}

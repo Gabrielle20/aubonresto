@@ -17,6 +17,7 @@ if(!empty($_POST)){
     $request =  ("SELECT key_chiffrement FROM users WHERE email_user='$login'");
     $result = $ConnexionBDD->getResults($conn,$request);
     while ($key = $result -> fetch_array(MYSQLI_NUM)) {
+
         $cle_chiffrement=$key[0];
     }
 
