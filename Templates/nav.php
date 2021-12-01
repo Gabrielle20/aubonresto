@@ -13,6 +13,7 @@
                                     <a href="../getarticles.php?articles=entrees" class="nav-item nav-link">Entrées</a>
                                     <a href="../getarticles.php?articles=plats" class="nav-item nav-link">Plats</a>
                                     <a href="../getarticles.php?articles=desserts" class="nav-item nav-link" tabindex="-1">Desserts</a>
+                                    <a href="../getarticles.php?articles=boissons" class="nav-item nav-link" tabindex="-1">Boissons</a>
                                 </div>
                                 <div class="navbar-nav ms-auto">
                                     <a href="../pageprofile.php" class="nav-item nav-link">Afficher mon profil</a>
@@ -35,6 +36,7 @@
                                     <a href="../getarticles.php?articles=entrees" class="nav-item nav-link">Entrées</a>
                                     <a href="../getarticles.php?articles=plats" class="nav-item nav-link">Plats</a>
                                     <a href="../getarticles.php?articles=desserts" class="nav-item nav-link" tabindex="-1">Desserts</a>
+                                    <a href="../getarticles.php?articles=boissons" class="nav-item nav-link" tabindex="-1">Boissons</a>
                                 </div>
                                 <div class="navbar-nav ms-auto">
                                     <a href="../connexion.php" class="nav-item nav-link">Connexion</a>

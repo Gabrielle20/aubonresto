@@ -65,7 +65,7 @@ class Article
      */
     public function getArticles() {
 
-        $query = ("SELECT * FROM articles");
+        $query = ("SELECT * FROM articles WHERE type_article = 'entrées'");
         $result = mysqli_query($this->conn, $query);
         $articles = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
@@ -104,5 +104,39 @@ class Article
         return $desserts;
     }
     
+
+
+    /**
+     * Récupère les articles de type boissons
+     *
+     * @return void
+     */
+    public function getBoissons() {
+        $query = ("SELECT * FROM articles WHERE type_article = 'boissons'");
+
+        $result = mysqli_query($this->conn, $query);
+        $boissons = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+        return $boissons;
+    }
+
+
+
+    /**
+     * Récupère un article
+     *
+     * @param integer $id
+     * @return void
+     */
+    public function getArticle(int $id) {
+        $query = ("SELECT * FROM articles WHERE id_article = $id");
+
+        $result = mysqli_query($this->conn, $query);
+        $singleArticle = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        
+        return $singleArticle;
+    }
+
+
 
 }
