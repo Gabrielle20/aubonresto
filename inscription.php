@@ -19,48 +19,36 @@ $ConnexionBDD = New ConnexionBDD ('mysql-aubonresto.alwaysdata.net','aubonresto_
                     <div class="col-md-6">
                         <label for="name" class="form-label">Nom</label>
                         <input type="name" name="name" id="name" class="form-control" placeholder="Parker" required>
-                        <div class="invalid-feedback">
-                            Ce champ est obligatoire.
-                        </div>
+
                     </div>
                     <div class="col-md-6">
                         <label for="firstname" class="form-label">Prénom</label>
                         <input type="text" name="firstname" id="firstname" class="form-control" placeholder="Jean" required>
-                        <div class="invalid-feedback">
-                            Ce champ est obligatoire.
-                        </div>
+
                     </div>
                     <div class="col-md-6">
                         <label for="phone" class="form-label">Téléphone</label>
                         <input type="phone" name="phone" id="phone" class="form-control" placeholder="06 23 56 84 12" required>
-                        <div class="invalid-feedback">
-                            Ce champ est obligatoire.
-                        </div>
+
                     </div>
                     <div class="col-md-6">
                         <label for="address" class="form-label">Adresse</label>
                         <input type="text" name="address" id="address" class="form-control" placeholder="12 rue de paris, 75001"  required>
-                        <div class="invalid-feedback">
-                            Ce champ est obligatoire.
-                        </div>
+
                     </div>
                     <div class="col-md-6">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" name="email" id="email" class="form-control" placeholder="name@exemple.com" required >
-                        <div class="invalid-feedback">
-                            Ce champ est obligatoire.
-                        </div>
+
                     </div>
                     <div class="col-md-6">
                         <label for="password" class="form-label">Mot de passe</label>
                         <input type="password" name="password" id="password" class="form-control" minlength="6" placeholder="6 caratère minimum" required>
-                        <div class="invalid-feedback">
-                            Ce champ est obligatoire.
-                        </div>
+
                     </div>
 
                     <div class="col-md-12">
-                        <button class="btn btn-primary text-center submit" type="submit">S'inscrire</button>
+                        <button class="btn btn-primary text-center submit" id="buttonInscription" type="button">S'inscrire</button>
                     </div>
                     <div class="Messages"></div>
 
@@ -77,14 +65,20 @@ $ConnexionBDD = New ConnexionBDD ('mysql-aubonresto.alwaysdata.net','aubonresto_
 
         // Fetch all the forms we want to apply custom Bootstrap validation styles to
         var forms = document.querySelectorAll('.needs-validation')
+    console.log(forms)
 
         // Loop over them and prevent submission
         Array.prototype.slice.call(forms)
             .forEach(function (form) {
-                form.addEventListener('submit', function (event) {
+                forms[0][6].addEventListener('click', function (event) {
                     if (!form.checkValidity()) {
                         event.preventDefault()
                         event.stopPropagation()
+                        $('.Messages').append(`
+                                <div class="alert alert-danger text-center mt-4" role="alert">
+                                    Veuillez remplir tous les champs!
+                                </div>
+                        `);
                     }
 
                     form.classList.add('was-validated')
@@ -143,7 +137,7 @@ $ConnexionBDD = New ConnexionBDD ('mysql-aubonresto.alwaysdata.net','aubonresto_
                                        	Inscription réussie!
                                     </div>
                                 `);
-                            $('#formInscription')[0].reset();
+                            $('#formInscription').reset();
                         }
                     }
 
