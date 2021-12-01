@@ -139,4 +139,18 @@ class Article
 
 
 
+
+    public function addArticle(array $article) {
+
+        if (!empty($article)) {
+            $query = "INSERT INTO articles (name_article, type_article, prix_article, description_article) VALUES (:name_article, :type_article, :prix_article, :description_article)";
+
+            if (mysqli_query($conn, $query)) {
+                echo "New record created successfully";
+            } else {
+                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            }
+        }
+    }
+
 }

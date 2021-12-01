@@ -20,6 +20,9 @@
                         <img src="./Images/assortiment.jpg" class="card-img-top imageCard" alt="assortiment">
                         <div class="card-body">
                             <p class="card-text"><?= $article['description_article'] ?></p>
+                            <div class="text-center">
+                            <a href="#" class="btn btn-success text-center" style="width: 80%">En savoir plus</a>
+                            </div>
                         </div>
                     </div>
                 </div>
