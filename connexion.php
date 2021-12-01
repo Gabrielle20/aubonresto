@@ -107,11 +107,9 @@ $ConnexionBDD = New ConnexionBDD ('mysql-aubonresto.alwaysdata.net','aubonresto_
                                 `);
                         }
                         if(data.check.ConnexionOk){
-                            $('.Messages').append(`
-                                    <div class="alert alert-success text-center mt-4" role="alert">
-                                        Connexion réussie!
-                                    </div>
-                            `);
+
+                            window.location.replace("pageProfile.php");
+
                         }
                     }
 
