@@ -81,6 +81,6 @@ class Reservation
         $resGetRes = mysqli_fetch_all(($this->connbdd->getResults($this->conn, $sqlGetRes)), MYSQLI_ASSOC); 
         
         $tabreservations = $resGetRes[0];  
-        var_dump($resGetRes); 
+        var_dump($tabreservations); 
     }
 }
