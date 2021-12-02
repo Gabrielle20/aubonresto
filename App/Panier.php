@@ -20,53 +20,6 @@ class Panier
 
     }
 
-    public function getTotal()
-    {
-        return $total;
-    }
-
-    public function setTotal()
-    {
-        $this->total = $total;
-    }
-
-
-
-    public function getStatut()
-    {
-        return $statut;
-    }
-
-    public function setStatut()
-    {
-        $this->statut = $statut;
-    }
-
-
-
-    public function getContenu()
-    {
-        return $contenu;
-    }
-
-    public function setContenu()
-    {
-        $this->contenu = $contenu;
-    }
-
-    
-
-    public function getUser()
-    {
-        return $user;
-    }
-
-    public function setUser()
-    {
-        $this->user = $user;
-    }
-
-
 
     /**
      * Récupère les éléments du panier
@@ -97,13 +50,21 @@ class Panier
         $result = mysqli_query($this->conn, $query);
         $panier = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-        $panier = $panier[0];
-        // $articles = $panier['articles_array'];
-        $articles = unserialize($panier['articles_array']);
+        if(!empty($panier)) {
+            $panier = $panier[0];
 
-        $count = count($articles);
+            $articles = unserialize($panier['articles_array']);
+    
+            if ($articles !== false) {
 
-        return $count;
+                $count = count($articles);
+        
+                return $count;
+            }
+        }
+        else {
+            return;
+        }
     }
 
 
@@ -114,7 +75,6 @@ class Panier
      * @return void
      */
     public function addToPanier(int $articleId) {
-
 
         if (!empty($articleId)) {
 
@@ -141,11 +101,13 @@ class Panier
                 $panier = $panier[0];
                 $panierId = $panier['id_panier'];
                 $prevtotal = $panier['total_panier'];
+                
 
-                $panier_data = unserialize($panier['articles_array']);
-                $panier_data[] .= $articleId;
+                if ($panier['articles_array'] !== "") {
+                    $panier_data = unserialize($panier['articles_array']);
+                }
+                $panier_data[] = $articleId;
                 $articles_serialized = serialize($panier_data);
-
                 $total = $prevtotal + $articlePrix;
 
                 $insert = "UPDATE panier SET id_user = '$userId', articles_array = '$articles_serialized', total_panier = $total, statut_panier = 'En cours' WHERE id_panier = $panierId";
@@ -156,7 +118,6 @@ class Panier
                 $articles = [];
                 $articles[] = $articleId;
                 $articles_serialized = serialize($articles);
-
                 $total = $articlePrix;
 
                 $insert = "INSERT INTO panier (id_user, articles_array, total_panier, statut_panier) VALUES ('$userId', '$articles_serialized', '$total', 'En cours')";
@@ -199,24 +160,37 @@ class Panier
         $result = mysqli_query($this->conn, $query);
         $panier = mysqli_fetch_all($result, MYSQLI_ASSOC);
         
-        $panier = $panier[0];
-        $panierId = $panier['id_panier'];
-        $totalPanier = $panier['total_panier'];
+        if ($panier !== null) {
+            $panier = $panier[0];
+            $panierId = $panier['id_panier'];
+            $totalPanier = $panier['total_panier'];
+    
+            // retirer l'article du tableau d'articles
+            $listArticles = $panier['articles_array'];
 
-        // retirer l'article du tableau d'articles
-        $listArticles = $panier['articles_array'];
-        $panier_data = unserialize($panier['articles_array']);
+            if ($listArticles !== null) {
+                $panier_data = unserialize($panier['articles_array']);
+        
+                if (($key = array_search($articleId, $panier_data)) !== false) {
+                    unset($panier_data[$key]);
+                }
+        
+                $articles_serialized = serialize($panier_data);
 
-        if (($key = array_search($articleId, $panier_data)) !== false) {
-            unset($panier_data[$key]);
+                if ($articles_serialized === "a:0:{}") {
+                    $articles_serialized = NULL;
+                }
+            }
+            else {
+                $articles_serialized = null;
+            }
+    
+            // soustraire le prix de l'article du total
+            $total = $totalPanier - $articlePrix;
         }
-
-        $articles_serialized = serialize($panier_data);
-
-
-        // soustraire le prix de l'article du total
-        $total = $totalPanier - $articlePrix;
-        var_dump($total);
+        else {
+            $articles_serialized = NULL;
+        }
 
 
         // update du panier en bdd
@@ -231,5 +205,26 @@ class Panier
         $newURL = "../getpanier.php?getpanier";
         header('Location: '.$newURL);
         exit;
+    }
+
+
+    /**
+     * Redirect vers choix de paiement
+     *
+     * @param $type
+     * @return void
+     */
+    public function payOnline($type) {
+
+        if (!empty($type)) {
+            $type = $type['typeName'];
+    
+    
+            if ($type !== null && $type === "en-ligne") {
+                $newURL = "../index.php";
+                header('Location: '.$newURL);
+                exit;
+            }
+        }
     }
 }

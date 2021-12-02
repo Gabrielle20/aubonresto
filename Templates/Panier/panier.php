@@ -70,14 +70,19 @@
                                             <p class="small mb-2">Card type</p>
                                             <a href="#!" type="submit" class="text-white"><i class="fab fa-cc-mastercard fa-2x me-2"></i></a>
 
-                                            <form class="mt-4">
+                                            <form class="mt-4" action="" method="POST">
                                                 <div class="form-outline form-white mb-4">
-                                                    <input type="text" id="typeName" class="form-control form-control-lg" siez="17"
-                                                    placeholder="Cardholder's Name" />
-                                                    <label class="form-label" for="typeName">Nom</label>
+                                                    <select name="typeName" id="typeName" class="form-control form-control-lg">
+                                                        <option value="">-</option>
+                                                        <option value="en-ligne">Payer en ligne</option>
+                                                        <option value="sur-place">Payer sur place</option>
+                                                    </select>
+                                                    <!--<input type="text" id="typeName" class="form-control form-control-lg" size="17"
+                                                    placeholder="Cardholder's Name" />-->
+                                                    <label class="form-label" for="typeName">Choix du paiement</label>
                                                 </div>
 
-                                                <div class="form-outline form-white mb-4">
+                                                <!--<div class="form-outline form-white mb-4">
                                                     <input type="text" id="typeText" class="form-control form-control-lg" siez="17"
                                                     placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" />
                                                     <label class="form-label" for="typeText">Numéro de carte</label>
@@ -98,22 +103,31 @@
                                                         <label class="form-label" for="typeText">Cvv</label>
                                                     </div>
                                                     </div>
+                                                </div>-->
+                                                
+                                                <div class="row mb-4">
+                                                    <div class="form-outline form-white">
+                                                        <div class="form-label">
+                                                            <p>Au Bon Resto : 12 rue de Paris, 75012</p>
+                                                        </div>
+                                                    </div>
                                                 </div>
+                                                
+                                                <hr class="my-4">
+    
+                                                <div class="d-flex justify-content-between mb-4">
+                                                    <p class="mb-2">Total</p>
+                                                    <p class="mb-2"><?php if($panier !== null) { echo $panier['total_panier'];} else{ echo "0"; } ?> €</p>
+                                                </div>
+    
+                                                <button type="submit" class="btn btn-info btn-block btn-lg">
+                                                    <div class="d-flex justify-content-between">
+                                                        <span><?php if($panier !== null) { echo $panier['total_panier']; }else {echo "0";} ?> €</span>
+                                                        <i class="fas fa-long-arrow-alt-right ms-2"></i>
+                                                    </div>
+                                                </button>
                                             </form>
 
-                                            <hr class="my-4">
-
-                                            <div class="d-flex justify-content-between mb-4">
-                                                <p class="mb-2">Total</p>
-                                                <p class="mb-2"><?php if($panier !== null) { echo $panier['total_panier'];} else{ echo "0"; } ?> €</p>
-                                            </div>
-
-                                            <button type="button" class="btn btn-info btn-block btn-lg">
-                                                <div class="d-flex justify-content-between">
-                                                    <span><?php if($panier !== null) { echo $panier['total_panier']; }else {echo "0";} ?> €</span>
-                                                    <i class="fas fa-long-arrow-alt-right ms-2"></i>
-                                                </div>
-                                            </button>
 
                                         </div>
                                     </div>

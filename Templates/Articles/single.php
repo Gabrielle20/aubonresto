@@ -23,7 +23,7 @@
                             <div class="text-center">
                             <?php
                                 if (!empty($_SESSION['id_user'])) {?>
-                                    <a href="../getpanier.php?addcart=<?= $article['id_article'] ?>" class="btn btn-success text-center" style="width: 80%">Ajouter au panier</a>
+                                    <a href="../getarticles.php?articles=plats&id=<?= $article['id_article'] ?>&addcart=<?= $article['id_article'] ?>" class="btn btn-success text-center" style="width: 80%">Ajouter au panier</a>
                                     <br>
                                     <br>
                             <?php }?>

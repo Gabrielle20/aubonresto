@@ -31,7 +31,7 @@
                         <div tyle="position:relative;">
                             <a href="../getpanier.php?getpanier"><i class="fas fa-shopping-cart"></i></a>
                             <i class="fas fa-circle" style="font-size:22px; color:red; position:absolute; left:25px; top:-5px;"></i>
-                            <p style="color:white; font-size:12px; margin:0; position:absolute; top:-2px; left:32px;"><?= $count ?></p>
+                            <p style="color:white; font-size:12px; margin:0; position:absolute; top:-3px; left:32px;"><?= $count ?></p>
                         </div>
 
                         <i class="fas fa-user-circle"

@@ -23,35 +23,50 @@ if (!empty($_SESSION['id_user'])) {
     if (!empty($_GET) && isset($_GET['getpanier']) && !isset($_GET['removearticle']) ) {
         $panierecup = $data->getCartElements();
 
-        if (!empty($panierecup)) {
+        if (!empty($panierecup) && $panierecup !== null) {
             
             $panier = $panierecup[0];
     
-            $articles = $panier['articles_array'];
-            
-    
-            $list = unserialize($articles);
-    
-            $articles = [];
-    
-            foreach ($list as $id)  {
+            if ($panier['articles_array'] !== null) {
+
+                $articles = $panier['articles_array'];
                 
-                $query = ("SELECT * FROM articles WHERE id_article = '$id'");
-                $result = mysqli_query($conn, $query);
-    
-                $article = mysqli_fetch_all($result, MYSQLI_ASSOC);
-    
-                $articles[] = $article[0];
+        
+                $list = unserialize($articles);
+
+                if ($list !== false) {
+                    $articles = [];
+                    
+                    foreach ($list as $id)  {
+                        
+                        $query = ("SELECT * FROM articles WHERE id_article = '$id'");
+                        $result = mysqli_query($conn, $query);
+            
+                        $article = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            
+                        $articles[] = $article[0];
+                    }
+            
+            
+                    $count = count($articles);
+                }
+                else {
+                    $articles = null;
+                }
+        
             }
-    
-    
-            $count = count($articles);
+            else {
+                $articles = null;
+            }
+
         }
         else {
             $articles = null;
             $count = 0;
             $panier = null;
         }
+
+        $type = $data->payOnline($_POST);
         
 
         include ROOT."/Templates/Panier/panier.php";
