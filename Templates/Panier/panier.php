@@ -24,7 +24,7 @@
                                 <div class="d-flex justify-content-between align-items-center mb-4">
                                     <div>
                                         <p class="mb-1">Panier</p>
-                                        <p class="mb-0"><?= $count ?> articles dans le panier</p>
+                                        <p class="mb-0"><?= $results['count'] ?> articles dans le panier</p>
                                     </div>
                                 </div>
 
@@ -93,12 +93,12 @@
 
                                             <div class="d-flex justify-content-between mb-4">
                                                 <p class="mb-2">Total</p>
-                                                <p class="mb-2"><?php if($panier !== null) { echo $panier['total_panier'];} else{ echo "0"; } ?> €</p>
+                                                <p class="mb-2"><?php if($results['panier'] !== null) { echo $results['panier']['total_panier'];} else{ echo "0"; } ?> €</p>
                                             </div>
 
                                             <button type="submit" class="btn btn-info btn-block btn-lg">
                                                 <div class="d-flex justify-content-between">
-                                                    <span><?php if($panier !== null) { echo $panier['total_panier']; }else {echo "0";} ?> €</span>
+                                                    <span><?php if($results['panier'] !== null) { echo $results['panier']['total_panier']; }else {echo "0";} ?> €</span>
                                                     <i class="fas fa-long-arrow-alt-right ms-2"></i>
                                                 </div>
     
