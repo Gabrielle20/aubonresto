@@ -23,7 +23,7 @@
                         
                     </div>
                     <div class="dropdown navbar-nav ms-auto">
-                        <div tyle="position:relative;">
+                        <div style="position:relative;">
                             <a href="../getpanier.php?getpanier"><i class="fas fa-shopping-cart"></i></a>
                             <?php if($count !== null) {?>
                                 <i class="fas fa-circle" style="font-size:22px; color:red; position:absolute; left:25px; top:-5px;"></i>

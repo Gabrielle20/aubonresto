@@ -1,3 +1,6 @@
+<?php
+use App\Panier;
+?>
 <html>
 <head>
     <title>Bon Mange Lakay</title>
@@ -26,7 +29,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav">
-                <a href="?page=reservation" class="nav-item nav-link active">Réserver une Table</a>
+                <a href="?page=saveReservation" class="nav-item nav-link active">Réserver une Table</a>
                 <a href="?page=getArticles&articles=entrees" class="nav-item nav-link">Entrées</a>
                 <a href="?page=getArticles&articles=plats" class="nav-item nav-link">Plats</a>
                 <a href="?page=getArticles&articles=desserts" class="nav-item nav-link" tabindex="-1">Desserts</a>
@@ -34,8 +37,16 @@
             </div>
 
             <div class="dropdown navbar-nav ms-auto">
-                <?php if (!empty($_SESSION['id_user'])){?>
-                    <a href="?page=panier&getpanier"><i class="fas fa-shopping-cart"></i></a>
+                <?php if (!empty($_SESSION['id_user'])){
+                    $data = new Panier();
+                    $count = $data->getNbrCartElements();?>
+                    <div style="position:relative;">
+                        <a href="?page=panier&getpanier"><i class="fas fa-shopping-cart"></i></a>
+                        <?php if($count !== null) {?>
+                            <i class="fas fa-circle" style="font-size:22px; color:red; position:absolute; left:25px; top:-5px;"></i>
+                            <p style="color:white; font-size:12px; margin:0; position:absolute; top:-3px; left:32px;"><?= $count ?></p>
+                        <?php }?>
+                    </div>
                 <?php }?>
                 <i class="fas fa-user-circle"
                    id="dropdownProfilButton"

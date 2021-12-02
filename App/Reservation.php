@@ -1,5 +1,5 @@
 <?php
-// namespace App;
+namespace App;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -76,7 +76,7 @@ class Reservation
      */
     public function addReservation($reservation)
     {
-        // $resOk = false; 
+        // $resOk = false;
         // var_dump($reservation); 
         if(!empty($reservation))
         {
@@ -93,18 +93,17 @@ class Reservation
                 // $mail->sendMail(); 
 
 
-                echo("Votre réservation à bien été prise en compte ! "); 
+               return true;
             }
             else 
             {
-                echo("Cette table est déjà réservée à cette date, veuillez réessayer avec une autre date ou une autre table svp."); 
+                return false;
                 // $resOk = false; 
             }
             
         }
         // $tab["reservation_validee"]=$resOk; 
         // return (json_encode($tab)); 
-        include "./Templates/Reservations/save.php"; 
     }
     /**
      * getReservations

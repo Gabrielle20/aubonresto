@@ -1,5 +1,5 @@
 <?php
-// namespace App; 
+namespace App;
 // use PHPMailer\PHPMailer\PHPMailer;
 // use PHPMailer\PHPMailer\SMTP;
 
@@ -14,11 +14,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 // require_once "vendor/autoload.php";
-
-
-include_once "./class/bdd/connexionbdd.php";
-
-include_once "./class/bdd/connexionbdd.php";
+use Core\Database\ConnexionBDD;
 
 class Mail 
 {

@@ -6,6 +6,8 @@ use App\Controller\ArticleController;
 use App\Controller\InscriptionController;
 use App\Controller\ConnexionController;
 use App\Controller\PanierController;
+use App\Controller\ReservationController;
+use App\Controller\ProfileController;
 
 
 if (isset($_GET["page"]) && !empty($_GET["page"])) {
@@ -91,6 +93,24 @@ if (isset($_GET["page"]) && !empty($_GET["page"])) {
             $result = (new PanierController())->delete($_POST['idArticle'], $_POST['idPanier']);
             echo json_encode($result);
         break;
+
+        case 'saveReservation':
+            (new ReservationController())->formIndex();
+        break;
+
+        case 'addReservation':
+            $result = (new ReservationController())->addReservation($_SESSION['id_user'],$_POST);
+            echo json_encode($result);
+        break;
+
+        case 'pageProfile' :
+            (new ProfileController())->index();
+        break;
+
+        case 'infosUser':
+            (new  ProfileController())->infoUser();
+        break;
+
     }
 }
 else{
