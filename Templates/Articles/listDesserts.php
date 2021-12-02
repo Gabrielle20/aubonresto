@@ -29,7 +29,7 @@
                                     <br>
                             <?php }?>
                             </div>
-                            <a href="../getpanier.php?addcart=<?= $dessert['id_article'] ?>" class="btn btn-secondary" style="width: 80%">Savoir plus</a>
+                            <a href="../getpanier.php?addcart=<?= $dessert['id_article'] ?>" class="btn btn-secondary more" style="width: 80%">Savoir plus</a>
                         </div>
                     </div>
                 </div>

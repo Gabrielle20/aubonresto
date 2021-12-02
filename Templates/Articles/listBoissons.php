@@ -29,7 +29,7 @@
                                     <br>
                             <?php }?>
                             </div>
-                            <a href="../getarticles.php?articles=boissons&id=<?= $boisson['id_article'] ?>" class="btn btn-secondary" style="width: 80%">En savoir plus</a>
+                            <a href="../getarticles.php?articles=boissons&id=<?= $boisson['id_article'] ?>" class="btn btn-secondary more" style="width: 80%">En savoir plus</a>
                         </div>
                     </div>
                 </div>

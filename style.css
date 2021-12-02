@@ -2,12 +2,26 @@ body {
     position: relative;
     font-family: Arial;
 }
+
+
+.imgTitle{
+    background-image: url("./images/banner.png");
+    height: 50vh;
+}
 #formCon{
     margin-top: 2em;
 }
 
 .sidebar:hover{
     background-color: #F79405;
+}
+.imgReg{
+    background-image: url("./images/bannerReg.png");
+    height: 20vh;
+}
+.imgReg{
+    background-image: url("./images/bannerReg.png");
+    height: 20vh;
 }
 .fas{
     font-size: 36px;
@@ -17,12 +31,22 @@ body {
     background-color: white;
     border: solid grey;
 }
+.imgCon{
+    background-image: url("./images/bannerCon.png");
+    height: 20vh;
+}
 
 .titleSideBar{
     height: 30%;
     background-image: url("./images/madras.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+}
+.bannerTitle{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 100%;
+    display: block;
 }
 
 .sidebarBody{
@@ -32,9 +56,29 @@ body {
     margin: 15% 5% 40% 5%;
 }
 
+
+.selecMoment{
+    margin-top: 3%;
+    margin-bottom: 5%;
+    width: 100%;
+    border-bottom: solid black ;
+}
+
 .fas{
     font-size: 36px;
     color: white;
+}
+.reservBtn{
+    margin-bottom: 15%;
+    font-size: 30px;
+    height: 60%;
+    width: 100%;
+    font-style: italic;
+}
+.selecMoment h2{
+    font-size: 60px;
+    font-style: italic;
+    font-weight: bolder;
 }
 .dropdown{
     position: relative;
@@ -42,10 +86,54 @@ body {
 .leftSideBar{
     width: 20%;
 }
+.imageCard{
+    height: 230px;
+}
+
 /* template création d'article */
 .new-article > .form-group {
     margin-bottom:10px;
 }
+
+.cardMoment{
+    margin: 15px auto 5em auto;
+}
+.submit{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+.forms{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+    box-shadow: 5px 5px 5px 5px #BFBFBF ;
+    padding: 10px;
+}
+.form-label{
+    font-size: 20px;
+}
+
+#formCon{
+    margin-top: 2em;
+}
+.sidebar:hover{
+    background-color: #F79405;
+}.fas{
+     font-size: 36px;
+     color: white;
+ }
+
+.dropdown{
+    position: relative;
+}
+.fa-shopping-cart {
+    margin-right:20px;
+}
+
+
 
 /********* css carte user *****************************/
 
@@ -57,10 +145,12 @@ body {
     cursor: pointer;
     transition: all 0.5s
 }
+
 .image imgCard {
     transition: all 0.5s
 }
-.card:hover .image img {
+
+.cardUser:hover .image img {
     transform: scale(1.5)
 }
 .btnCardUser {
@@ -83,6 +173,10 @@ body {
     color: #aeaeae;
     font-size: 15px
 }
+
+
+
+
 /* template création d'article */
 .new-article > .form-group {
     margin-bottom:10px;
@@ -103,4 +197,18 @@ body {
 }
 
 
+.more {
+    max-width:100px;
+    font-size: 12px;
+    padding:unset;
+    position:absolute;
+    right:10px;
+    bottom:10px;
+}
 
+
+
+/* template création d'article */
+.new-article > .form-group {
+    margin-bottom:10px;
+}
