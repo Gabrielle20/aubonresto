@@ -8,8 +8,8 @@ use PHPMailer\PHPMailer\Exception;
 // require_once '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
 // require_once '../vendor/phpmailer/phpmailer//src/SMTP.php';
 
-include_once "../class/bdd/connexionbdd.php";
-include_once "../App/Mail.php"; 
+include_once "./class/bdd/connexionbdd.php";
+include_once "./App/Mail.php"; 
 
 class Reservation
 {
@@ -79,7 +79,7 @@ class Reservation
         }
         // $tab["reservation_validee"]=$resOk; 
         // return (json_encode($tab)); 
-        include "../Templates/Reservations/save.php"; 
+        include "./Templates/Reservations/save.php"; 
     }
 
     public function getReservations()
@@ -87,7 +87,7 @@ class Reservation
         $sqlReservations = "SELECT * FROM reservations WHERE id_user = '".$this->id_user."'"; 
         $sqlReservationResult = mysqli_query($this->conn, $sqlReservations);
         $reservations = mysqli_fetch_all($sqlReservationResult, MYSQLI_ASSOC);
-        require_once "../Templates/Reservations/index.php"; 
+        require_once "./Templates/Reservations/index.php"; 
         return($reservations); 
         
         // var_dump($resGetRes); 
