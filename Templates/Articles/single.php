@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<?php include './Templates/headHtml.html'; ?>
 
 
-<body>
-    <?php include('./Templates/nav.php');?>
+<div class="container">
 
-    <div class="container">
+    <div style="width: 60%; margin: 0 auto;">
+        <div class="selecMoment card-title">
+            <h2><?= $article["name_article"] ?></h2>
+        </div>
 
         <div style="width: 60%; margin: 0 auto;">
             <div class="selecMoment card-title">
@@ -31,11 +30,8 @@
                         </div>
                     </div>
                 </div>
-            
             </div>
+
         </div>
     </div>
-
-    <?php include "./Templates/footerHtml.html"?>
-</body>
-</html>
+</div>

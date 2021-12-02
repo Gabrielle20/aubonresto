@@ -1,7 +1,7 @@
 <html>
 <?php
 
-include_once $_SERVER['DOCUMENT_ROOT'].'/class/bdd/connexionbdd.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/class/bdd/connexionbdd.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/class/connexion/formconnexion.php';
 
 include $_SERVER['DOCUMENT_ROOT'].'/Templates/headHtml.html';

@@ -1,6 +1,10 @@
 <?php
 
-require_once "./class/bdd/connexionbdd.php";
+
+namespace App;
+use Core\Database\ConnexionBDD;
+
+
 class User
 {
     private string $name;

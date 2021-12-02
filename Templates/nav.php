@@ -36,16 +36,15 @@
                            data-bs-toggle="dropdown" aria-expanded="false">
                         </i>
 
-                        <ul class="dropdown-menu" aria-labelledby="dropdownProfilButton">
-                            <li><a class="dropdown-item" href="../pageprofile.php">Afficher mon profil</a></li>
-                            <li><a class="dropdown-item" href="../logOut.php">Déconnexion</a></li>
-                        </ul>
-                        
-                    </div>
-                </div>
-            </div>
-       </nav>
-
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownProfilButton">
+                                        <li><a class="dropdown-item" href="?page=pageProfile">Afficher mon profil</a></li>
+                                        <li><a class="dropdown-item" href="?page=pageProfile">Déconnexion</a></li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                   </nav>
     <?php }
     else { ?>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">

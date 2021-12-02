@@ -1,5 +1,4 @@
 <?php
-session_start();
 //----------------------------------------------------------------------------------------
 /**
  * URL
@@ -7,18 +6,20 @@ session_start();
  * @return : une connexion a la bdd
  */
 
+namespace Core\Database;
+
 class ConnexionBDD{
 
 
     private $conn;
 
-	public function __construct(){
+    public function __construct(){
 
-        include $_SERVER['DOCUMENT_ROOT']."/login_bdd.php";
+        include $_SERVER['DOCUMENT_ROOT'] . "/login_bdd.php";
         $this->conn = mysqli_connect($configBdd['servername'], $configBdd['username'], $configBdd['password'],$configBdd['dbname']);
 
 
-	}
+    }
 	public function ServerName(){
 			return $this->servername;
 	}

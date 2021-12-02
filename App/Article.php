@@ -1,9 +1,8 @@
 <?php
 
-// namespace App;
+namespace App;
 
-require_once "./class/bdd/connexionbdd.php";
-
+use Core\Database\ConnexionBDD;
 class Article
 {
     private int $prix;
@@ -16,7 +15,7 @@ class Article
 
 
     public function __construct() {
-        $this->ConnexionBDD = New ConnexionBDD ();
+        $this->ConnexionBDD = New ConnexionBDD();
         $this->conn = $this->ConnexionBDD->OpenCon();
 
     }

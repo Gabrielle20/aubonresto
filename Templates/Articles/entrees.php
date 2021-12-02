@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<?php include './Templates/headHtml.html'; ?>
 
 
-<body>
-    <?php include('./Templates/nav.php');?>
+<div class="container">
+    <div class="selecMoment text-center card-title">
+        <h2>Nos entrées : </h2>
+    </div>
 
-    <div class="container">
-        <div class="selecMoment text-center card-title">
-            <h2>Nos entrées : </h2>
-        </div>
+    <div class="row cardMoment">
 
         <div class="cardMoment" style="display:flex; justify-content: space-around; align-items:center;">
 
@@ -32,10 +28,8 @@
                         </div>
                     </div>
                 </div>
-            <?php endforeach; ?>
-        </div>
+            </div>
+        <?php endforeach; ?>
     </div>
+</div>
 
-    <?php include "./Templates/footerHtml.html"?>
-</body>
-</html>

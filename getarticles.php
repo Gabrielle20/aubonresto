@@ -47,7 +47,7 @@ if (!empty($_GET) && isset($_GET['articles']) && $_GET['articles'] === "plats" &
 
     $plats = $data->getPlats();
 
-    include ROOT."/Templates/Articles/listPlats.php";
+    include ROOT . "/Templates/Articles/plats.php";
 }
 
 
@@ -62,7 +62,7 @@ if (!empty($_GET) && isset($_GET['articles']) && $_GET['articles'] === "desserts
 
     $desserts = $data->getDesserts();
 
-    include ROOT."/Templates/Articles/listDesserts.php";
+    include ROOT . "/Templates/Articles/desserts.php";
 }
 
 
@@ -77,7 +77,7 @@ if (!empty($_GET) && isset($_GET['articles']) && $_GET['articles'] === "boissons
 
     $boissons = $data->getBoissons();
 
-    include ROOT."/Templates/Articles/listBoissons.php";
+    include ROOT . "/Templates/Articles/boissons.php";
 }
 
 

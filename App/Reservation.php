@@ -3,7 +3,14 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-include_once "./class/bdd/connexionbdd.php";
+
+use Core\Database\ConnexionBDD;
+
+// require_once '../vendor/phpmailer/phpmailer/src/Exception.php';
+// require_once '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
+// require_once '../vendor/phpmailer/phpmailer//src/SMTP.php';
+
+
 include_once "./App/Mail.php"; 
 
 class Reservation
