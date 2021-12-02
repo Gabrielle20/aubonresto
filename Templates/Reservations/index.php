@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <?php include('../Templates/headHtml.html')?>
+    <?php include('./Templates/headHtml.html')?>
     <body>
-    <?php include_once "../Templates/nav.php"; ?>
+    <?php include_once "./Templates/nav.php"; ?>
         <div class="container">
             <div class="selecMoment text-center">
                 <h2>Vos Réservations</h2>

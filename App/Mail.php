@@ -9,9 +9,9 @@
 // use PHPMailer\PHPMailer\PHPMailer;
 // use PHPMailer\PHPMailer\Exception;
 
-require_once '../vendor/phpmailer/phpmailer/src/Exception.php';
-require_once '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
-require_once '../vendor/phpmailer/phpmailer//src/SMTP.php';
+require_once './vendor/phpmailer/phpmailer/src/Exception.php';
+require_once './vendor/phpmailer/phpmailer/src/PHPMailer.php';
+require_once './vendor/phpmailer/phpmailer//src/SMTP.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -19,9 +19,9 @@ use PHPMailer\PHPMailer\Exception;
 // require_once "vendor/autoload.php";
 
 
-include_once "../class/bdd/connexionbdd.php";
+include_once "./class/bdd/connexionbdd.php";
 
-include_once "../class/bdd/connexionbdd.php";
+include_once "./class/bdd/connexionbdd.php";
 
 class Mail 
 {

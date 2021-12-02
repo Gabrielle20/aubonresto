@@ -1,11 +1,11 @@
 <?php
-include_once "../Templates/nav.php"; 
+include_once "./Templates/nav.php"; 
 
 
 ?>
  <!DOCTYPE html>
 <html lang="fr">
-<?php include('../Templates/headHtml.html')?>
+<?php include('./Templates/headHtml.html')?>
 <body>
 <div class="container">
     <div class="selecMoment text-center">
