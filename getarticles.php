@@ -2,12 +2,19 @@
 
 define("ROOT", __DIR__);
 include_once "./App/Article.php";
-
+include_once "./App/Panier.php";
 
 $data = new Article();
+$panier = new Panier();
 
 // Récupère le single article
 if (!empty($_GET) && isset($_GET['articles']) && isset($_GET['id']) && is_numeric($_GET['id'])) {
+    if (!empty($_SESSION['id_user'])) {
+        if (isset($_GET['addcart'])) {
+            $panier->addToPanier($_GET['addcart']);
+        }
+    }
+
     $singleArticle = $data->getArticle($_GET['id']);
 
     $article = $singleArticle[0];
@@ -16,8 +23,14 @@ if (!empty($_GET) && isset($_GET['articles']) && isset($_GET['id']) && is_numeri
 }
 
 
-// Récupère toutes les ehrtées
+// Récupère toutes les entrées
 if (!empty($_GET) && isset($_GET['articles']) && $_GET['articles'] === "entrees" && !isset($_GET['id'])) {
+    if (!empty($_SESSION['id_user'])) {
+        if (isset($_GET['addcart'])) {
+            $panier->addToPanier($_GET['addcart']);
+        }
+    }
+
     $articles = $data->getArticles();
     include ROOT."/Templates/Articles/entrees.php";
 }
@@ -26,6 +39,12 @@ if (!empty($_GET) && isset($_GET['articles']) && $_GET['articles'] === "entrees"
 
 // Récupère tous les plats
 if (!empty($_GET) && isset($_GET['articles']) && $_GET['articles'] === "plats" && !isset($_GET['id'])) {
+    if (!empty($_SESSION['id_user'])) {
+        if (isset($_GET['addcart'])) {
+            $panier->addToPanier($_GET['addcart']);
+        }
+    }
+
 
     $plats = $data->getPlats();
 
@@ -36,6 +55,12 @@ if (!empty($_GET) && isset($_GET['articles']) && $_GET['articles'] === "plats" &
 
 // Récupère tous les desserts
 if (!empty($_GET) && isset($_GET['articles']) && $_GET['articles'] === "desserts" && !isset($_GET['id'])) {
+    if (!empty($_SESSION['id_user'])) {
+        if (isset($_GET['addcart'])) {
+            $panier->addToPanier($_GET['addcart']);
+        }
+    }
+
 
     $desserts = $data->getDesserts();
 
@@ -46,6 +71,12 @@ if (!empty($_GET) && isset($_GET['articles']) && $_GET['articles'] === "desserts
 
 // Récupère toutes les boissons
 if (!empty($_GET) && isset($_GET['articles']) && $_GET['articles'] === "boissons" && !isset($_GET['id'])) {
+    if (!empty($_SESSION['id_user'])) {
+        if (isset($_GET['addcart'])) {
+            $panier->addToPanier($_GET['addcart']);
+        }
+    }
+
 
     $boissons = $data->getBoissons();
 

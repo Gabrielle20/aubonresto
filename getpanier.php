@@ -13,39 +13,55 @@ $conn = $connexionBDD->OpenCon();
 
 
 if (!empty($_SESSION['id_user'])) {
+    // ajouter des éléments au panier
+    // if (!empty($_GET) && isset($_GET['addcart']) && is_numeric($_GET['addcart']) && !isset($_GET['removearticle'])) {
+    //     $data->addToPanier($_GET['addcart']);
+    // }
 
-    if (!empty($_GET) && isset($_GET['addcart']) && is_numeric($_GET['addcart'])) {
-        $data->addToPanier($_GET['addcart']);
-    }
-
-
-
-    if (!empty($_GET) && isset($_GET['getpanier']) ) {
+    
+    // récupérer le panier
+    if (!empty($_GET) && isset($_GET['getpanier']) && !isset($_GET['removearticle']) ) {
         $panierecup = $data->getCartElements();
-        $panier = $panierecup[0];
 
-        $articles = $panier['articles_array'];
-        
-
-        $list = unserialize($articles);
-
-        $articles = [];
-
-        foreach ($list as $id)  {
+        if (!empty($panierecup)) {
             
-            $query = ("SELECT * FROM articles WHERE id_article = '$id'");
-            $result = mysqli_query($conn, $query);
-
-            $article = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-            $articles[] = $article[0];
+            $panier = $panierecup[0];
+    
+            $articles = $panier['articles_array'];
+            
+    
+            $list = unserialize($articles);
+    
+            $articles = [];
+    
+            foreach ($list as $id)  {
+                
+                $query = ("SELECT * FROM articles WHERE id_article = '$id'");
+                $result = mysqli_query($conn, $query);
+    
+                $article = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    
+                $articles[] = $article[0];
+            }
+    
+    
+            $count = count($articles);
         }
-
-
-        $count = count($articles);
+        else {
+            $articles = null;
+            $count = 0;
+            $panier = null;
+        }
         
 
         include ROOT."/Templates/Panier/panier.php";
+    }
+
+
+    // enlever des éléments du panier
+    if (!empty($_GET) && isset($_GET['getpanier']) && isset($_GET['removearticle']) && is_numeric($_GET['removearticle'])  ) {
+        
+        $data->removeFromPanier($_GET['panierid'], $_GET['removearticle']);
     }
 }
 

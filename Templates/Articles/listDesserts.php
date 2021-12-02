@@ -24,12 +24,12 @@
                             <div class="text-center"  style="margin-bottom:1rem;">
                             <?php
                                 if (!empty($_SESSION['id_user'])) {?>
-                                    <a href="../getpanier.php?addcart=<?= $dessert['id_article'] ?>" class="btn btn-success text-center" style="width: 80%">Ajouter au panier</a>
+                                    <a href="../getarticles.php?articles=desserts&addcart=<?= $dessert['id_article'] ?>" class="btn btn-success text-center" style="width: 80%">Ajouter au panier</a>
                                     <br>
                                     <br>
                             <?php }?>
                             </div>
-                            <a href="../getpanier.php?addcart=<?= $dessert['id_article'] ?>" class="btn btn-secondary" style="width: 80%">Ajouter au panier</a>
+                            <a href="../getpanier.php?addcart=<?= $dessert['id_article'] ?>" class="btn btn-secondary" style="width: 80%">Savoir plus</a>
                         </div>
                     </div>
                 </div>

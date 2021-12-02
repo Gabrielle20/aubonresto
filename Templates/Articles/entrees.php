@@ -21,12 +21,12 @@
                             <h5 class="text-center card-title"><?= $article['name_article'] ?></h5>
                             <p class="card-text"><?= $article['description_article'] ?></p>
                             <div class="text-center"  style="margin-bottom:1rem;">
-                            <?php
-                                if (!empty($_SESSION['id_user'])) {?>
-                                    <a href="../getpanier.php?addcart=<?= $article['id_article'] ?>" class="btn btn-success text-center" style="width: 80%">Ajouter au panier</a>
-                                    <br>
-                                    <br>
-                            <?php }?>
+                                <?php
+                                    if (!empty($_SESSION['id_user'])) {?>
+                                        <a href="../getarticles.php?articles=entrees&addcart=<?= $article['id_article'] ?>" class="btn btn-success text-center" style="width: 80%">Ajouter au panier</a>
+                                        <br>
+                                        <br>
+                                <?php }?>
                             </div>
                             <a href="../getarticles.php?articles=entrees&id=<?= $article['id_article'] ?>" class="btn btn-secondary" style="width: 80%">En savoir plus</a>
                         </div>

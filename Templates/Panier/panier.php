@@ -27,34 +27,33 @@
                                         </div>
                                     </div>
 
-                                    <?php foreach($articles as $article) : ?>
-                                        <div class="card mb-3">
-                                            <div class="card-body">
-                                                <div class="d-flex justify-content-between">
-                                                <div class="d-flex flex-row align-items-center">
-                                                    <div>
-                                                    <img
-                                                        src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-shopping-carts/img1.jpg"
-                                                        class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
+                                    <?php if($articles !== null) { ?>
+                                        <?php foreach($articles as $article) : ?>
+                                            <div class="card mb-3">
+                                                <div class="card-body">
+                                                    <div class="d-flex justify-content-between">
+                                                        <div class="d-flex flex-row align-items-center">
+                                                            <div>
+                                                                <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-shopping-carts/img1.jpg"
+                                                                    class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
+                                                            </div>
+
+                                                            <div class="ms-3">
+                                                                <h5><?= $article['name_article'] ?></h5>
+                                                                <p class="small mb-0"><?= $article['description_article'] ?></p>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="d-flex flex-row align-items-center">
+                                                            <div style="width: 80px;">
+                                                            <h5 class="mb-0"><?= $article['prix_article'] ?> €</h5>
+                                                            </div>
+                                                            <a href="../getpanier.php?getpanier&removearticle=<?= $article['id_article'] ?>&panierid=<?= $panier['id_panier'] ?>" style="color: #cecece;"><i class="fas fa-trash-alt" style="color: #ccc;"></i></a>
+                                                        </div>
                                                     </div>
-                                                    <div class="ms-3">
-                                                    <h5><?= $article['name_article'] ?></h5>
-                                                    <p class="small mb-0"><?= $article['description_article'] ?></p>
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex flex-row align-items-center">
-                                                    <div style="width: 50px;">
-                                                    <h5 class="fw-normal mb-0">2</h5>
-                                                    </div>
-                                                    <div style="width: 80px;">
-                                                    <h5 class="mb-0"><?= $article['prix_article'] ?> €</h5>
-                                                    </div>
-                                                    <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
-                                                </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    <?php endforeach; ?>
+                                        <?php endforeach; }?>
 
                                 </div>
 
@@ -70,9 +69,6 @@
 
                                             <p class="small mb-2">Card type</p>
                                             <a href="#!" type="submit" class="text-white"><i class="fab fa-cc-mastercard fa-2x me-2"></i></a>
-                                            <a href="#!" type="submit" class="text-white"><i class="fab fa-cc-visa fa-2x me-2"></i></a>
-                                            <a href="#!" type="submit" class="text-white"><i class="fab fa-cc-amex fa-2x me-2"></i></a>
-                                            <a href="#!" type="submit" class="text-white"><i class="fab fa-cc-paypal fa-2x"></i></a>
 
                                             <form class="mt-4">
                                                 <div class="form-outline form-white mb-4">
@@ -107,16 +103,14 @@
 
                                             <hr class="my-4">
 
-                                            
-
                                             <div class="d-flex justify-content-between mb-4">
-                                                <p class="mb-2">Total(Incl. taxes)</p>
-                                                <p class="mb-2"><?= $panier['total_panier'] ?> €</p>
+                                                <p class="mb-2">Total</p>
+                                                <p class="mb-2"><?php if($panier !== null) { echo $panier['total_panier'];} else{ echo "0"; } ?> €</p>
                                             </div>
 
                                             <button type="button" class="btn btn-info btn-block btn-lg">
                                                 <div class="d-flex justify-content-between">
-                                                    <span><?= $panier['total_panier'] ?> €</span>
+                                                    <span><?php if($panier !== null) { echo $panier['total_panier']; }else {echo "0";} ?> €</span>
                                                     <i class="fas fa-long-arrow-alt-right ms-2"></i>
                                                 </div>
                                             </button>

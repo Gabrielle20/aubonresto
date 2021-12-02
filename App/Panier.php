@@ -68,10 +68,12 @@ class Panier
 
 
 
-
+    /**
+     * Récupère les éléments du panier
+     *
+     * @return void
+     */
     public function getCartElements() {
-
-
         $userId = $_SESSION['id_user'];
 
         $query = ("SELECT * FROM panier WHERE id_user = $userId");
@@ -82,6 +84,27 @@ class Panier
     }
 
 
+
+    /**
+     * Get number of elements in cart
+     *
+     * @return int
+     */
+    public function getNbrCartElements() {
+        $userId = $_SESSION['id_user'];
+
+        $query = ("SELECT * FROM panier WHERE id_user = $userId");
+        $result = mysqli_query($this->conn, $query);
+        $panier = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+        $panier = $panier[0];
+        // $articles = $panier['articles_array'];
+        $articles = unserialize($panier['articles_array']);
+
+        $count = count($articles);
+
+        return $count;
+    }
 
 
     /**
@@ -113,7 +136,7 @@ class Panier
             $panier = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
             
-            
+            // si un panier existe déjà pour cet utilisateur => UPDATE
             if (!empty($panier)) {
                 $panier = $panier[0];
                 $panierId = $panier['id_panier'];
@@ -128,6 +151,7 @@ class Panier
                 $insert = "UPDATE panier SET id_user = '$userId', articles_array = '$articles_serialized', total_panier = $total, statut_panier = 'En cours' WHERE id_panier = $panierId";
                 
             }
+            // sinon, création dun nouveau panier => INSERT INTO
             else {
                 $articles = [];
                 $articles[] = $articleId;
@@ -140,11 +164,72 @@ class Panier
 
 
             if (mysqli_query($this->conn, $insert)) {
-                echo "Article ajouté au panier";
+                // echo "Article ajouté au panier";
+                return true;
             } else {
-                echo "Error: " . $sql . "<br>" . mysqli_error($this->conn);
+                return false;
+                // echo "Error: " . $sql . "<br>" . mysqli_error($this->conn);
             }
         }
 
+    }
+
+
+    /**
+     * Retirer des articles du panier
+     *
+     * @param integer $panierId
+     * @param integer $articleId
+     * @return void
+     */
+    public function removeFromPanier(int $panierId, int $articleId) {
+
+
+        // récupérer l'article
+        $articleObj = ("SELECT * FROM articles WHERE id_article = '$articleId'");
+        $articleResult = mysqli_query($this->conn, $articleObj);
+        $article = mysqli_fetch_all($articleResult, MYSQLI_ASSOC);
+
+        $article = $article[0];
+        $articlePrix = $article['prix_article'];
+
+
+        // rédupérer le panier
+        $query = ("SELECT * FROM panier WHERE id_panier = '$panierId'");
+        $result = mysqli_query($this->conn, $query);
+        $panier = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        
+        $panier = $panier[0];
+        $panierId = $panier['id_panier'];
+        $totalPanier = $panier['total_panier'];
+
+        // retirer l'article du tableau d'articles
+        $listArticles = $panier['articles_array'];
+        $panier_data = unserialize($panier['articles_array']);
+
+        if (($key = array_search($articleId, $panier_data)) !== false) {
+            unset($panier_data[$key]);
+        }
+
+        $articles_serialized = serialize($panier_data);
+
+
+        // soustraire le prix de l'article du total
+        $total = $totalPanier - $articlePrix;
+        var_dump($total);
+
+
+        // update du panier en bdd
+        $update = "UPDATE panier SET articles_array = '$articles_serialized', total_panier = '$total' WHERE id_panier = $panierId";
+
+        if (mysqli_query($this->conn, $update)) {
+            echo "Article retiré du panier";
+        } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($this->conn);
+        }
+
+        $newURL = "../getpanier.php?getpanier";
+        header('Location: '.$newURL);
+        exit;
     }
 }
