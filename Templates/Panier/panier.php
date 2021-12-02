@@ -72,7 +72,8 @@
 
                                             <form class="mt-4">
                                                 <div class="form-outline form-white mb-4">
-                                                    <input type="text" id="typeName" class="form-control form-control-lg" siez="17"
+                                                    <select name="typeName" id="typeName" class="form-control form-control-lg"></select>
+                                                    <input type="text" id="typeName" class="form-control form-control-lg" size="17"
                                                     placeholder="Cardholder's Name" />
                                                     <label class="form-label" for="typeName">Nom</label>
                                                 </div>
