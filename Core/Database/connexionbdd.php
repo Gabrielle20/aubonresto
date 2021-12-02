@@ -15,7 +15,7 @@ class ConnexionBDD{
 
     public function __construct(){
 
-        include $_SERVER['DOCUMENT_ROOT'] . "/login_bdd.php";
+        include ROOT."/Config/login_bdd.php";
         $this->conn = mysqli_connect($configBdd['servername'], $configBdd['username'], $configBdd['password'],$configBdd['dbname']);
 
 

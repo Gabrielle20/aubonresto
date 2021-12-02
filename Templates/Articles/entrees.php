@@ -6,9 +6,6 @@
     </div>
 
     <div class="row cardMoment">
-
-        <div class="cardMoment" style="display:flex; justify-content: space-around; align-items:center;">
-
             <?php foreach($articles as $article) : ?>
                 <div style="max-with:30%;">
                     <div class="card" style="max-width: 100%; margin: 0 auto;">
@@ -28,7 +25,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
         <?php endforeach; ?>
     </div>
 </div>
