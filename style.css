@@ -8,13 +8,39 @@ body {
     background-image: url("./images/banner.png");
     height: 50vh;
 }
+#formCon{
+    margin-top: 2em;
+}
+
+.sidebar:hover{
+    background-color: #F79405;
+}
 .imgReg{
     background-image: url("./images/bannerReg.png");
     height: 20vh;
 }
+.imgReg{
+    background-image: url("./images/bannerReg.png");
+    height: 20vh;
+}
+.fas{
+    font-size: 36px;
+    color: white;
+ }
+.sidebarclass{
+    background-color: white;
+    border: solid grey;
+}
 .imgCon{
     background-image: url("./images/bannerCon.png");
     height: 20vh;
+}
+
+.titleSideBar{
+    height: 30%;
+    background-image: url("./images/madras.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .bannerTitle{
     background-repeat: no-repeat;
@@ -23,12 +49,24 @@ body {
     display: block;
 }
 
+.sidebarBody{
+    height: 80%;
+    display: block;
+    background-color: #F79405;
+    margin: 15% 5% 40% 5%;
+}
+
 
 .selecMoment{
     margin-top: 3%;
     margin-bottom: 5%;
     width: 100%;
     border-bottom: solid black ;
+}
+
+.fas{
+    font-size: 36px;
+    color: white;
 }
 .reservBtn{
     margin-bottom: 15%;
@@ -42,8 +80,19 @@ body {
     font-style: italic;
     font-weight: bolder;
 }
+.dropdown{
+    position: relative;
+}
+.leftSideBar{
+    width: 20%;
+}
 .imageCard{
     height: 230px;
+}
+
+/* template création d'article */
+.new-article > .form-group {
+    margin-bottom:10px;
 }
 
 .cardMoment{
@@ -70,24 +119,117 @@ body {
 #formCon{
     margin-top: 2em;
 }
+.sidebar:hover{
+    background-color: #F79405;
+}.fas{
+     font-size: 36px;
+     color: white;
+ }
+
+.dropdown{
+    position: relative;
+}
+.fa-shopping-cart {
+    margin-right:20px;
+}
+
+
+
+/********* css carte user *****************************/
+
+.cardUser{
+    margin-top: -20%;
+    margin-left: 20%;
+    width: 40%;
+    background-color: #efefef;
+    cursor: pointer;
+    transition: all 0.5s
+}
+
+.image imgCard {
+    transition: all 0.5s
+}
+
+.cardUser:hover .image img {
+    transform: scale(1.5)
+}
+.btnCardUser {
+    height: 140px;
+    width: 140px;
+    border-radius: 50%
+}
+.name {
+    font-size: 22px;
+    font-weight: bold
+}
+.idd {
+    font-size: 12px
+}
+.btn1 {
+    height: 40px;
+    width: 150px;
+    border: none;
+    background-color: #000;
+    color: #aeaeae;
+    font-size: 15px
+}
+
+
+
+
+/* template création d'article */
+.new-article > .form-group {
+    margin-bottom:10px;
+}
+/*********************** les médias restent en bas du fichier*****************/
+@media (min-width: 1000px) {
+    .dropdown-menu[data-bs-popper]{
+        margin-right: 10%;
+        position: absolute;
+        right: 0;
+        left:inherit;
+    }
+}
+@media (max-width: 999px) {
+    .dropdown-menu[data-bs-popper]{
+        width: 30%;
+    }
+}
+
+
+.more {
+    max-width:100px;
+    font-size: 12px;
+    padding:unset;
+    position:absolute;
+    right:10px;
+    bottom:10px;
+}
+
+
+
+/* template création d'article */
+.new-article > .form-group {
+    margin-bottom:10px;
+}
 
 /*********************************************************PAGE PAIEMENT************************************************/
-.btn{
+.btnPaiement{
     margin-top: 50px;
     margin-left: 250px;
     margin-bottom: 50px;
-    width: 100px;
+    width: 100px;   
 }
 
-.container{
+.containerPaiement{
     margin-top: 50px;
     border: 1px solid #e28383;
-    border-radius: 10%;
+    border-radius: 50px;
     background: linear-gradient(#e66465, #9198e5);
-    
 }
 
-.row{
+.rowPaiement{
     display: flex;
     justify-content: center;
+
 }

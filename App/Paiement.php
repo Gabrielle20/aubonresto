@@ -11,8 +11,8 @@
 </head>
 
 <body>
-    <div class="container" class="mx-auto" style="width: 800px;">
-        <div class="row">
+    <div class="containerPaiement" class="mx-auto" style="width: 800px;">
+        <div class="rowPaiement">
             <form>
                 <div id="titleVisa">
                     <h1><img src="../Images/visa.png" alt="">Paiement par carte</h1>
@@ -25,7 +25,7 @@
                     <label for="cardNumber">Numéro de carte</label>
                     <input type="number" class="form-control" id="cardNumber" placeholder="111 222 333 444 555">
                 </div>
-                <div class="row">
+                <div class="rowPaiement">
                     <div class="col">
                         <label for="exampleInputEmail1">Date d'expiration</label>
                         <input type="month" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -35,7 +35,7 @@
                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="123">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Payer</button>
+                <button type="submit" class="btn btn-primary btnPaiement">Payer</button>
             </form>
         </div>
     </div>

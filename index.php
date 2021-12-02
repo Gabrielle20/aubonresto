@@ -1,12 +1,9 @@
 <html>
-
 <?php
-session_start();
 include('./Templates/headHtml.html');
 define("ROOT", __DIR__);
+
 ?>
-
-
 
 <body>
 
@@ -74,6 +71,10 @@ define("ROOT", __DIR__);
 
 
 </body>
+
+
+
+</html>
 
 
 
