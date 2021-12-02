@@ -31,7 +31,7 @@ if(isset($_SESSION["id_user"])){
             <p class="card-text"><strong>Nom:</strong> <?= $name; ?></p>
             <p class="card-text"><strong>Prénom:</strong> <?= $firstname; ?></p>
             <p class="card-text"><strong>Adresse mail: </strong> <?= $email; ?></p>
-            <p class="card-text"><strong>Numéro de téléphone: 0</strong> <?= $phonenumber; ?></p>
+            <p class="card-text"><strong>Numéro de téléphone: </strong> 0<?= $phonenumber; ?></p>
             <p class="card-text"><strong></strong>Adresse: <?= $address; ?></p>
 
         </div>

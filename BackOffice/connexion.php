@@ -1,17 +1,16 @@
 <html>
 <?php
 
-include_once './class/bdd/connexionbdd.php';
-include_once './class/connexion/formconnexion.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/class/bdd/connexionbdd.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/class/connexion/formconnexion.php';
 
-include './Templates/headHtml.html';
+include $_SERVER['DOCUMENT_ROOT'].'/Templates/headHtml.html';
 //----------------------------------------------------------------------------------------------
 
 $ConnexionBDD = New ConnexionBDD ();// Appel de la class
 ?>
 <body>
-<?php include('./Templates/nav.php');?>
-<div class="bannerTitle imgCon"></div>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/Templates/nav.php');?>
 <div class="container  ">
     <form method="post" class="row g-3 needs-validation forms " id="formCon" novalidate>
 
@@ -77,12 +76,13 @@ $ConnexionBDD = New ConnexionBDD ();// Appel de la class
 
             form_data.append('login',login);
             form_data.append('password',pwd);
-            form_data.append('role','user');
+            form_data.append('role', 'admin');
+            console.log("<?php echo $_SERVER['DOCUMENT_ROOT']?>/getconnexion.php");
 
             $.ajax({
                 type: "post",
                 dataType : 'json',
-                url: "getconnexion.php",
+                url: "../getconnexion.php",
                 cache: false,
                 contentType: false,
                 processData: false,
@@ -109,7 +109,7 @@ $ConnexionBDD = New ConnexionBDD ();// Appel de la class
                         }
                         if(data.check.ConnexionOk){
 
-                            window.location.replace("pageProfile.php");
+                            window.location.replace("index.php");
 
                         }
                     }

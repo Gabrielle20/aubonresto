@@ -8,14 +8,17 @@ body {
     background-image: url("./images/banner.png");
     height: 50vh;
 }
+
 .imgReg{
     background-image: url("./images/bannerReg.png");
     height: 20vh;
 }
+
 .imgCon{
     background-image: url("./images/bannerCon.png");
     height: 20vh;
 }
+
 .bannerTitle{
     background-repeat: no-repeat;
     background-size: cover;
@@ -30,6 +33,7 @@ body {
     width: 100%;
     border-bottom: solid black ;
 }
+
 .reservBtn{
     margin-bottom: 15%;
     font-size: 30px;
@@ -37,11 +41,13 @@ body {
     width: 100%;
     font-style: italic;
 }
+
 .selecMoment h2{
     font-size: 60px;
     font-style: italic;
     font-weight: bolder;
 }
+
 .imageCard{
     height: 230px;
 }
@@ -72,22 +78,67 @@ body {
 }
 
 /*********************************************************PAGE PAIEMENT************************************************/
-.btn{
+.btnPaiement{
     margin-top: 50px;
     margin-left: 250px;
     margin-bottom: 50px;
-    width: 100px;
+    width: 100px;   
 }
 
-.container{
+.containerPaiement{
     margin-top: 50px;
     border: 1px solid #e28383;
-    border-radius: 10%;
+    border-radius: 50px;
     background: linear-gradient(#e66465, #9198e5);
-    
 }
 
-.row{
+.rowPaiement{
     display: flex;
     justify-content: center;
+
+}
+
+.sidebar:hover{
+    background-color: #F79405;
+}.fas{
+    font-size: 36px;
+    color: white;
+}
+.dropdown{
+    position: relative;
+}
+
+.fa-shopping-cart {
+    margin-right:20px;
+}
+
+@media (min-width: 1000px) {
+    .dropdown-menu[data-bs-popper]{
+        margin-right: 10%;
+        position: absolute;
+        right: 0;
+        left:inherit;
+    }
+}
+@media (max-width: 999px) {
+    .dropdown-menu[data-bs-popper]{
+        width: 30%;
+    }
+}
+
+
+.btn-secondary {
+    max-width:100px;
+    font-size: 12px;
+    padding:unset;
+    position:absolute;
+    right:10px;
+    bottom:10px;
+}
+
+
+
+/* template création d'article */
+.new-article > .form-group {
+    margin-bottom:10px;
 }

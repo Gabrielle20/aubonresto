@@ -64,7 +64,7 @@ class myPDF extends FPDF
         $this->Cell(20, 10, '', 0, 0, 'C');
         $this->Cell(20, 10, '', 0, 0, 'C');
         $this->Cell(20, 10, '', 0, 0, 'C');
-        $this->Cell(30, 10, '', 0, 0, 'C');
+        $this->Cell(20, 10, '', 0, 0, 'C');
         $this->Cell(40, 10, $total . ' Euro', 1, 0, 'C');
     }
 }
