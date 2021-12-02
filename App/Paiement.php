@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <div class="containerPaiement" class="mx-auto" style="width: 800px;">
+    <div class="containerPaiement" class="mx-auto" style="width: 1100px;">
         <div class="rowPaiement">
             <form>
                 <div id="titleVisa">
