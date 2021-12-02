@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<?php include './Templates/headHtml.html'; ?>
+
+<div style="display:flex; justify-content: space-between;">
+    <div class="leftSideBar">
+        <?php include('./Templates/sidebar.php');?>
+    </div>
 
 
-<body>
-    <?php include('./Templates/nav.php');?>
-
-
+    <div class="row cardMoment" style="width:80%; flex-wrap: wrap; justify-content:space-around;">
 
     <div style="display:flex; justify-content: space-between;">
         <div class="leftSideBar">
@@ -32,14 +31,10 @@
                             </div>
                             <a href="../getarticles.php?delete=<?= $article['id_article'] ?>" class="btn btn-secondary more" style="width: 80%" onclick="return confirm('Voulez-vous vraiment supprimer cet article ?')">Supprimer</a>
                         </div>
+                        <a href="../getarticles.php?articles=all&delete=<?= $article['id_article'] ?>" class="btn btn-secondary more" style="width: 80%">Supprimer</a>
                     </div>
                 </div>
-            <?php endforeach; ?>
-        </div>
+            </div>
+        <?php endforeach; ?>
     </div>
 
-
-
-    <?php include "./Templates/footerHtml.html"?>
-</body>
-</html>

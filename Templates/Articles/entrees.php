@@ -16,16 +16,18 @@
                             <div class="text-center"  style="margin-bottom:1rem;">
                                 <?php
                                     if (!empty($_SESSION['id_user'])) {?>
-                                        <a href="../getarticles.php?articles=entrees&addcart=<?= $article['id_article'] ?>" class="btn btn-success text-center" style="width: 80%">Ajouter au panier</a>
+                                        <button class="btn btn-success text-center" style="width: 80%" id="addToCart" onclick="addToCart(<?php echo $article['id_article']?>)">Ajouter au panier</button>
                                         <br>
                                         <br>
                                 <?php }?>
                             </div>
-                            <a href="../getarticles.php?articles=entrees&id=<?= $article['id_article'] ?>" class="btn btn-secondary more" style="width: 80%">En savoir plus</a>
+                            <a href="?page=singleArticle&articles=entrees&id=<?= $article['id_article'] ?>" class="btn btn-secondary more" style="width: 80%">En savoir plus</a>
                         </div>
                     </div>
                 </div>
         <?php endforeach; ?>
     </div>
 </div>
+
+
 

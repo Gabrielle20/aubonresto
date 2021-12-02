@@ -15,7 +15,8 @@ class PanierController extends DefaultController
     public function index()
     {
         $results =$this->processCart();
-        $this->render("Panier/panier", $results);
+        $this->render("Panier/panier", array(
+            "results"=>$results));
     }
 
     public function processCart()
@@ -42,7 +43,7 @@ class PanierController extends DefaultController
 
                     $results['panier'] = $panierecup[0];
 
-                    if ($result['panier']['articles_array'] !== null) {
+                    if ($results['panier']['articles_array'] !== null) {
 
                         $articles = $results['panier']['articles_array'];
 
@@ -85,6 +86,26 @@ class PanierController extends DefaultController
             }
 
         }
+    }
+
+    public function add($id){
+
+        $panier =new Panier();
+        $result = $panier->addToPanier($id);
+
+        if ($result){
+            return "Ajouté au panier.";
+        }
+        else{
+            return "L'ajout au panier n'a pas pu se faire, veuillez réessayer.";
+        }
+    }
+
+    public function delete($idArticle, $idPanier){
+
+        $panier = new Panier();
+        $result = $panier->removeFromPanier($idPanier,$idArticle);
+        return $result;
     }
 
 

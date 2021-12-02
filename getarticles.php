@@ -1,6 +1,5 @@
 <?php
 
-define("ROOT", __DIR__);
 include_once "./App/Article.php";
 include_once "./App/Panier.php";
 

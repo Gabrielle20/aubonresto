@@ -199,14 +199,13 @@ class Panier
         $update = "UPDATE panier SET articles_array = '$articles_serialized', total_panier = '$total' WHERE id_panier = $panierId";
 
         if (mysqli_query($this->conn, $update)) {
-            echo "Article retiré du panier";
+
+            return true;
         } else {
-            echo "Error: " . $update . "<br>" . mysqli_error($this->conn);
+
+            return false;
         }
 
-        $newURL = "../getpanier.php?getpanier";
-        header('Location: '.$newURL);
-        exit;
     }
 
 

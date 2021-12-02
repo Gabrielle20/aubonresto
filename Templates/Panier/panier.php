@@ -1,6 +1,5 @@
 
 
-
 <section class="h-100 h-custom" style="background-color: #eee;">
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
@@ -24,7 +23,7 @@
                                 <div class="d-flex justify-content-between align-items-center mb-4">
                                     <div>
                                         <p class="mb-1">Panier</p>
-                                        <p class="mb-0"><?= $results['count'] ?> articles dans le panier</p>
+                                        <p class="mb-0"><?= isset($results['count']) ?  $results['count'] : 0?> articles dans le panier</p>
                                     </div>
                                 </div>
 
@@ -53,7 +52,7 @@
                                                         <div style="width: 80px;">
                                                         <h5 class="mb-0"><?= $article['prix_article'] ?> €</h5>
                                                         </div>
-                                                        <a href="../getpanier.php?getpanier&removearticle=<?= $article['id_article'] ?>&panierid=<?= $panier['id_panier'] ?>" style="color: #cecece;"><i class="fas fa-trash-alt" style="color: #ccc;"></i></a>
+                                                        <i class="fas fa-trash-alt" style="color: #ccc; cursor: pointer;" onclick="deleteProduct(<?= $article['id_article'].",".$results['panier']['id_panier']?>)"></i>
                                                     </div>
                                                 </div>
                                             </div>

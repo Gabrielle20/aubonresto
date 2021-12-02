@@ -80,7 +80,17 @@ if (isset($_GET["page"]) && !empty($_GET["page"])) {
 
         case 'panier':
             (new PanierController())->index();
-            break;
+        break;
+
+        case 'addToCart':
+           $result = (new PanierController())->add($_POST['id']);
+           echo $result;
+        break;
+
+        case 'delete':
+            $result = (new PanierController())->delete($_POST['idArticle'], $_POST['idPanier']);
+            echo json_encode($result);
+        break;
     }
 }
 else{
