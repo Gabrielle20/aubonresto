@@ -89,7 +89,7 @@ if (!empty($_SESSION['id_user'])) {
     if (!empty($_GET) && isset($_GET['articles']) && $_GET['articles'] === "new" && !isset($_GET['id'])) {
         $newArticle = $data->addArticle($_POST);
 
-        include ROOT."/Templates/Articles/new.php";
+        include ROOT."/Templates/Articles/new_product.php";
     }
 
     // Modification d'un article
@@ -106,7 +106,7 @@ if (!empty($_SESSION['id_user'])) {
     if (!empty($_GET) && isset($_GET['articles']) && $_GET['articles'] === "all") {
         $articles = $data->getAll();
 
-        include ROOT."/Templates/Articles/all.php";
+        include ROOT."/Templates/Articles/all_products.php";
     }
 
 
@@ -115,6 +115,6 @@ if (!empty($_SESSION['id_user'])) {
         
         $articles = $data->deleteArticle($_GET['delete']);
 
-        include ROOT."/Templates/Articles/all.php";
+        include ROOT."/Templates/Articles/all_products.php";
     }
 }

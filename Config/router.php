@@ -30,6 +30,8 @@ if (isset($_GET["page"]) && !empty($_GET["page"])) {
                     (new ArticleController())->boissons();
                 break;
 
+
+
             }
         break;
 
@@ -42,19 +44,21 @@ if (isset($_GET["page"]) && !empty($_GET["page"])) {
                 switch ($_GET["articles"]){
                     case "entrees":
                         (new ArticleController())->entrees();
-                        break;
+                    break;
 
                     case "plats":
                         (new ArticleController())->plats();
-                        break;
+                    break;
 
                     case "desserts":
                         (new ArticleController())->desserts();
-                        break;
+                    break;
 
                     case "boissons":
                         (new ArticleController())->boissons();
-                        break;
+                    break;
+
+
 
                 }
             }
@@ -68,6 +72,10 @@ if (isset($_GET["page"]) && !empty($_GET["page"])) {
             else{
                 (new ConnexionController())->index();
             }
+        break;
+
+        case 'logOut':
+            (new ConnexionController())->logOut();
         break;
 
         case 'register':
@@ -104,7 +112,20 @@ if (isset($_GET["page"]) && !empty($_GET["page"])) {
         break;
 
         case 'pageProfile' :
-            (new ProfileController())->index();
+            if(isset($_GET['articles'])){
+                switch ($_GET['articles']){
+                    case "allProducts":
+                        (new ProfileController())->getAll();
+                        break;
+
+                    case "newProduct":
+                        (new ProfileController())->newProduct();
+                        break;
+                }
+            }
+            else{
+                (new ProfileController())->index();
+            }
         break;
 
         case 'infosUser':

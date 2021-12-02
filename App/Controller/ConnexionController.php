@@ -45,7 +45,7 @@ class ConnexionController extends DefaultController
 
             if ($check){
 
-                $get_data = ("SELECT * FROM users WHERE email_user='$login' and pass_user= '$pwdhash'AND type_user = '".$role."'");
+                $get_data = ("SELECT * FROM users WHERE email_user='$login' and pass_user= '$pwdhash'");
                 $data = $ConnexionBDD->getResults($conn,$get_data);
                 while ($row = $data -> fetch_array(MYSQLI_NUM)) {
                     $_SESSION['id_user']=$row[0];
@@ -64,5 +64,12 @@ class ConnexionController extends DefaultController
             }
             return $tab;
         }
+    }
+
+    public function logOut(){
+        $_SESSION = array();
+        session_destroy();
+        header('Location: ?page=login');
+        exit();
     }
 }

@@ -50,12 +50,12 @@ use App\Panier;
                 <?php }?>
                 <i class="fas fa-user-circle"
                    id="dropdownProfilButton"
-                   data-bs-toggle="dropdown" aria-expanded="false">
+                   data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer">
                 </i>
                 <?php if (!empty($_SESSION['id_user'])){?>
                     <ul class="dropdown-menu" aria-labelledby="dropdownProfilButton">
                     <li><a class="dropdown-item" href="?page=pageProfile">Afficher mon profil</a></li>
-                    <li><a class="dropdown-item" href="?page=pageProfile">Déconnexion</a></li>
+                    <li><a class="dropdown-item" href="?page=logOut">Déconnexion</a></li>
                 </ul>
                 <?php } else{?>
                 <ul class="dropdown-menu" aria-labelledby="dropdownProfilButton">
