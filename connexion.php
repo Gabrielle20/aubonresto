@@ -36,6 +36,10 @@ $ConnexionBDD = New ConnexionBDD ();// Appel de la class
 
 </div>
 
+
+
+</div>
+
 <script>
     (function () {
         'use strict'
@@ -109,7 +113,7 @@ $ConnexionBDD = New ConnexionBDD ();// Appel de la class
                         }
                         if(data.check.ConnexionOk){
 
-                            window.location.replace("pageProfile.php");
+                            window.location.replace("pageprofile.php");
 
                         }
                     }
@@ -119,6 +123,9 @@ $ConnexionBDD = New ConnexionBDD ();// Appel de la class
         });
     });
 </script>
+
+<?php include "./Templates/footerHtml.html"?>
+</body>
 
 <?php include "./Templates/footerHtml.html"?>
 </body>

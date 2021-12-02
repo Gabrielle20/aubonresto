@@ -1,10 +1,37 @@
-<?php session_start()?>
-<div class="d-flex flex-column vh-100 flex-shrink-0 p-3 text-white" style="width: 250px; background-color: #D88105;"> <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"> <svg class="bi me-2" width="30" height="32"> </svg>
-        <span class="fs-5"><?php echo $_SESSION['name_user']." ".$_SESSION['firstname_user']?></span> </a>
-    <hr>
-    <ul class="nav nav-pills flex-column mb-auto">
-        <li> <a href="#" class="nav-link text-white sidebar"> <i class="fa fa-dashboard"></i><span class="ms-2">Liste des commandes</span> </a> </li>
-        <li> <a href="#" class="nav-link text-white sidebar"> <i class="fa fa-dashboard"></i><span class="ms-2">Liste des Produits</span> </a> </li>
-        <li> <a href="#" class="nav-link text-white sidebar"> <i class="fa fa-dashboard"></i><span class="ms-2">Ajouter un produit</span> </a> </li>
-    </ul>
-</div>
+<?php
+if ($_SESSION['type_user']=='user') :?>
+    <div class="sidebarclass">
+        <div class="titleSideBar">
+        </div>
+        <div class="sidebarBody text-dark">
+            <strong><a href="pageprofile.php" class="mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                    <span class="fs-5"><?php echo $_SESSION['name_user']." ".$_SESSION['firstname_user']?></span></a>
+            </strong>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li> <a href="infosUser.php" class="nav-link text-white sidebar"> <i class="fa fa-dashboard"></i><span class="ms-2">Profil</span> </a> </li>
+                <li> <a href="#" class="nav-link text-white sidebar"> <i class="fa fa-dashboard"></i><span class="ms-2">Mes réservations</span> </a> </li>
+                <li> <a href="#" class="nav-link text-white sidebar"> <i class="fa fa-dashboard"></i><span class="ms-2">Mes commandes</span> </a> </li>
+            </ul>
+        </div>
+    </div>
+
+<?php endif;
+if ($_SESSION['type_user']=='admin') :?>
+    <div class=" sidebarclass">
+        <div class="titleSideBar">
+        </div>
+        <div class="sidebarBody text-dark">
+            <strong><a href="pageprofile.php" class="mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                    <span class="fs-5"><?php echo $_SESSION['name_user']." ".$_SESSION['firstname_user']?></span>
+                </a></strong>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li> <a href="infosUser.php" class="nav-link text-white sidebar"> <i class="fa fa-dashboard"></i><span class="ms-2">Profil</span> </a> </li>
+                <li> <a href="#" class="nav-link text-white sidebar"> <i class="fa fa-dashboard"></i><span class="ms-2">Liste des commandes</span> </a> </li>
+                <li> <a href="#" class="nav-link text-white sidebar"> <i class="fa fa-dashboard"></i><span class="ms-2">Liste des Produits</span> </a> </li>
+                <li> <a href="#" class="nav-link text-white sidebar"> <i class="fa fa-dashboard"></i><span class="ms-2">Ajouter un produit</span> </a> </li>
+            </ul>
+        </div>
+    </div>
+<?php endif; ?>

@@ -9,13 +9,12 @@ if(!empty($_POST)){
 
     $login =  htmlspecialchars(strip_tags($_POST['login']));
     $password = $_POST['password'];
-    $role = $_POST['role'];
 
-    //connexion a la base de donnéesafin de récuperer la clé de chiffrement
+    //connexion a la base de données
     $ConnexionBDD = New ConnexionBDD ();
     $conn = $ConnexionBDD->OpenCon();
 
-    $request =  ("SELECT key_chiffrement FROM users WHERE email_user='$login' AND type_user = '".$role."'");
+    $request =  ("SELECT key_chiffrement FROM users WHERE email_user='$login'");
     $result = $ConnexionBDD->getResults($conn,$request);
     while ($key = $result -> fetch_array(MYSQLI_NUM)) {
 
@@ -29,7 +28,7 @@ if(!empty($_POST)){
 
     if ($check){
 
-        $get_data = ("SELECT * FROM users WHERE email_user='$login' and pass_user= '$pwdhash'AND type_user = '".$role."'");
+        $get_data = ("SELECT * FROM users WHERE email_user='$login' and pass_user= '$pwdhash'");
         $data = $ConnexionBDD->getResults($conn,$get_data);
         while ($row = $data -> fetch_array(MYSQLI_NUM)) {
             $_SESSION['id_user']=$row[0];
