@@ -17,6 +17,8 @@
                                     <a href="../getarticles.php?articles=new" class="nav-item nav-link" tabindex="-1">Nouvel Article</a>
                                 </div>
                                 <div class="dropdown navbar-nav ms-auto">
+                                    <a href="../getpanier.php?getpanier"><i class="fas fa-shopping-cart"></i></a>
+
                                     <i class="fas fa-user-circle"
                                        id="dropdownProfilButton"
                                        data-bs-toggle="dropdown" aria-expanded="false">

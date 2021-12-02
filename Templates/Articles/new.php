@@ -24,12 +24,19 @@
                 </div>
                 <div class="form-group">
                     <label for="prix_article">Prix :</label>
-                    <input type="number" class="form-control" name="prix_article" id="prix_article">
+                    <input type="number" step="0.01" class="form-control" name="prix_article" id="prix_article">
                 </div>
 
                 <div class="form-group">
                     <label for="type_article">Type de l'article</label>
-                    <input type="text" class="form-control" name="type_article" id="type_article" placeholder="Type de l'article">
+                    <select class="form-control" name="type_article" id="type_article">
+                        <option value="">-</option>
+                        <option value="boissons">Boissons</option>
+                        <option value="entrées">Entrées</option>
+                        <option value="plats">Plats</option>
+                        <option value="desserts">Desserts</option>
+                    </select>
+                    
                 </div>
 
                 <br/>

@@ -15,14 +15,17 @@
 
             <?php foreach($articles as $article) : ?>
                 <div class="col sm-4">
-                    <div class="card" style="max-width: 50%; margin: 0 auto;">
+                    <div class="card" style="max-width: 100%; margin: 0 auto;">
                         <img src="./Images/assortiment.jpg" class="card-img-top imageCard" alt="assortiment">
                         <div class="card-body">
                             <h5 class="text-center card-title"><?= $article['name_article'] ?></h5>
                             <p class="card-text"><?= $article['description_article'] ?></p>
-                            <div class="text-center">
-                            <a href="../getarticles.php?articles=entrees&id=<?= $article['id_article'] ?>" class="btn btn-success text-center" style="width: 80%">En savoir plus</a>
+                            <div class="text-center"  style="margin-bottom:1rem;">
+                                <a href="../getpanier.php?addcart=<?= $article['id_article'] ?>" class="btn btn-success text-center" style="width: 80%">Ajouter au panier</a>
+                                <br>
+                                <br>
                             </div>
+                            <a href="../getarticles.php?articles=entrees&id=<?= $article['id_article'] ?>" class="btn btn-secondary" style="width: 80%">En savoir plus</a>
                         </div>
                     </div>
                 </div>

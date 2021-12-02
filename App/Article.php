@@ -164,6 +164,20 @@ class Article
     }
 
 
+    /**
+     * Supprimer un article
+     *
+     * @param integer $id
+     * @return void
+     */
+    public function deleteArticle(int $id) {
+        $sql = "DELETE FROM MyGuests WHERE id=3";
 
+        if ($this->conn->query($sql) === TRUE) {
+        echo "L'article a bien été supprimé";
+        } else {
+        echo "Error deleting record: " . $conn->error;
+        }
+    }
 
 }

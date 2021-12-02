@@ -11,7 +11,6 @@ if (!empty($_GET) && isset($_GET['articles']) && isset($_GET['id']) && is_numeri
     $singleArticle = $data->getArticle($_GET['id']);
 
     $article = $singleArticle[0];
-    // $singleArticle = $singleArticle[0];
 
     include ROOT."/Templates/Articles/single.php";
 }
