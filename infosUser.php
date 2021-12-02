@@ -30,7 +30,7 @@ if(isset($_SESSION["id_user"])){
         <div class="leftSideBar">
             <?php include('./Templates/sidebar.php');?>
         </div>
-        <div class="body">
+        <div class="infoUserBody">
             <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
                 <div class="cardUser p-4">
                     <div class=" image d-flex flex-column justify-content-center align-items-center">

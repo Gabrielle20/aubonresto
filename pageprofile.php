@@ -15,9 +15,7 @@ if(isset($_SESSION["id_user"])){
         <div class="leftSideBar">
             <?php include('./Templates/sidebar.php');?>
         </div>
-        <div class="body">
 
-        </div>
     </div>
 <?php }else{
     header('Location: /index.php');
