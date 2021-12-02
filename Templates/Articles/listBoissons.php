@@ -22,9 +22,12 @@
                             <h5 class="text-center card-title"><?= $boisson['name_article'] ?></h5>
                             <p class="card-text"><?= $boisson['description_article'] ?></p>
                             <div class="text-center" style="margin-bottom:1rem;">
-                                <a href="../getpanier.php?addcart=<?= $boisson['id_article'] ?>" class="btn btn-success text-center" style="width: 80%">Ajouter au panier</a>
-                                <br>
-                                <br>
+                            <?php
+                                if (!empty($_SESSION['id_user'])) {?>
+                                    <a href="../getpanier.php?addcart=<?= $boisson['id_article'] ?>" class="btn btn-success text-center" style="width: 80%">Ajouter au panier</a>
+                                    <br>
+                                    <br>
+                            <?php }?>
                             </div>
                             <a href="../getarticles.php?articles=boissons&id=<?= $boisson['id_article'] ?>" class="btn btn-secondary" style="width: 80%">En savoir plus</a>
                         </div>

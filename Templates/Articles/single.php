@@ -21,7 +21,12 @@
                         <div class="card-body">
                             <p class="card-text"><?= $article['description_article'] ?></p>
                             <div class="text-center">
-                            <a href="../getpanier.php?addcart=<?= $article['id_article'] ?>" class="btn btn-success text-center" style="width: 80%">Ajouter au panier</a>
+                            <?php
+                                if (!empty($_SESSION['id_user'])) {?>
+                                    <a href="../getpanier.php?addcart=<?= $article['id_article'] ?>" class="btn btn-success text-center" style="width: 80%">Ajouter au panier</a>
+                                    <br>
+                                    <br>
+                            <?php }?>
                             </div>
                         </div>
                     </div>

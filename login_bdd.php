@@ -1,11 +1,12 @@
 <?php
 
 $configBdd = array(
-	'servername' => 'localhost:3307',
-	'dbname'=>'aubonresto_db',
-    'username' => 'root',
- 	'password' =>'',
- 	
- 	
+    'servername' => 'mysql-aubonresto.alwaysdata.net',
+    'dbname'=>'aubonresto_db',
+    'username' => '250765_dbuser',
+     'password' =>'aubonrestobg95',
+     
+     
 );
+
 ?>
