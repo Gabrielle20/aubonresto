@@ -1,6 +1,7 @@
 <?php
 
 
+
 function MailExist($mail){
     $ConnexionBDD = New ConnexionBDD ();
     $conn = $ConnexionBDD->OpenCon();

@@ -1,16 +1,15 @@
-<html>
+
 <?php
 
-include_once './class/bdd/connexionbdd.php';
-include_once './class/connexion/formconnexion.php';
 
-include './Templates/headHtml.html';
-//----------------------------------------------------------------------------------------------
+use Core\Database\ConnexionBDD;
+use App\FormConnexion;
+//---------------------------------------------------------------------------------------------
 
+-------------------------------------------------------------------------------------------
 $ConnexionBDD = New ConnexionBDD ();// Appel de la class
 ?>
-<body>
-<?php include('./Templates/nav.php');?>
+
 <div class="bannerTitle imgCon"></div>
 <div class="container  ">
     <form method="post" class="row g-3 needs-validation forms " id="formCon" novalidate>
@@ -86,7 +85,7 @@ $ConnexionBDD = New ConnexionBDD ();// Appel de la class
             $.ajax({
                 type: "post",
                 dataType : 'json',
-                url: "getconnexion.php",
+                url: "?page=login&action=inLogin",
                 cache: false,
                 contentType: false,
                 processData: false,
@@ -123,6 +122,4 @@ $ConnexionBDD = New ConnexionBDD ();// Appel de la class
         });
     });
 </script>
-<?php include "./Templates/footerHtml.html"?>
-</body>
 

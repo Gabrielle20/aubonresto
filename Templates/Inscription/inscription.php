@@ -1,16 +1,11 @@
-<html>
 <?php
 
-include_once './class/bdd/connexionbdd.php';
-include_once './class/inscription/forminscription.php';
-
-include './Templates/headHtml.html';
+use App\FormInscription;
 
 //----------------------------------------------------------------------------------------------
 $ConnexionBDD = New ConnexionBDD ();// Appel de la class
 ?>
-<body>
-<?php include('./Templates/nav.php');?>
+
 
 <div class="bannerTitle imgReg"></div>
 
@@ -98,7 +93,7 @@ $ConnexionBDD = New ConnexionBDD ();// Appel de la class
                     $.ajax({
                         type: "post",
                         dataType : 'json',
-                        url: "getinscription.php",
+                        url: "?page=register&action=registing",
                         cache: false,
                         contentType: false,
                         processData: false,
@@ -143,8 +138,4 @@ $ConnexionBDD = New ConnexionBDD ();// Appel de la class
 
 
 </script>
-
-<?php include './Templates/footerHtml.html' ?>
-</body>
-</html>
 

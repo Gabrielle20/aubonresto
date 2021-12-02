@@ -1,7 +1,7 @@
 <?php
 include_once 'functions.php';
 include_once './class/bdd/connexionbdd.php';
-include_once './class/connexion/formconnexion.php';
+use App\FormConnexion;
 ?>
 <html>
 <?php include('./Templates/headHtml.html');?>

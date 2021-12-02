@@ -1,5 +1,6 @@
 <?php
-include_once 'functions.php';
+namespace App;
+use Core\Database\ConnexionBDD;
 
 class FormConnexion{
 
@@ -24,7 +25,7 @@ class FormConnexion{
  			$message=false;
 			if (!empty($this->login) AND !empty($this->password) ) {
 				$ConnexionOk = false;
- 				$UserExist=verifUser($this->login,$this->password);
+ 				$UserExist=$this->verifUser($this->login,$this->password);
 				 //-----------------------------------------------------------
 				if ($UserExist){
 					$ConnexionOk=TRUE;
@@ -43,6 +44,25 @@ class FormConnexion{
 			}
 			
 			return (json_encode($tab));
+	}
+	// function qui vérifie si l'utilisateur est bien inscris
+	function verifUser($login,$password){
+		$ConnexionBDD = New ConnexionBDD ();
+		$conn = $ConnexionBDD->OpenCon();
+
+		$request =  ("SELECT COUNT(*) FROM users WHERE email_user='$login' AND pass_user='$password'");
+
+		$result = $ConnexionBDD->getResults($conn,$request);
+		while($row= $result->fetch_row()){
+			for ($i=0; $i <sizeof($row) ; $i++) {
+				if ($row[0] == 1) {
+					return TRUE;
+				} else {
+					return false;
+				}
+			}
+		}
+
 	}
 	public function __toString(){
 

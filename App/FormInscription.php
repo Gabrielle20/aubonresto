@@ -1,7 +1,10 @@
 <?php
+
+namespace App;
 include_once 'functions.php';
 
-class formInscription{
+
+class FormInscription{
 
     private $name;
     private $firstname;

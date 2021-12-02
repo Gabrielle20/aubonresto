@@ -19,7 +19,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a href="?page=index" class="navbar-brand">Au bon Resto</a>
+        <a href="?page=" class="navbar-brand">Au bon Resto</a>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -31,13 +31,17 @@
                 <a href="?page=getArticles&articles=desserts" class="nav-item nav-link" tabindex="-1">Desserts</a>
                 <a href="?page=getArticles&articles=boissons" class="nav-item nav-link" tabindex="-1">Boissons</a>
             </div>
+
             <div class="dropdown navbar-nav ms-auto">
+                <?php if (!empty($_SESSION['id_user'])){?>
+                    <a href="?page=panier&getpanier"><i class="fas fa-shopping-cart"></i></a>
+                <?php }?>
                 <i class="fas fa-user-circle"
                    id="dropdownProfilButton"
                    data-bs-toggle="dropdown" aria-expanded="false">
                 </i>
                 <?php if (!empty($_SESSION['id_user'])){?>
-                <ul class="dropdown-menu" aria-labelledby="dropdownProfilButton">
+                    <ul class="dropdown-menu" aria-labelledby="dropdownProfilButton">
                     <li><a class="dropdown-item" href="?page=pageProfile">Afficher mon profil</a></li>
                     <li><a class="dropdown-item" href="?page=pageProfile">Déconnexion</a></li>
                 </ul>

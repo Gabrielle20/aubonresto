@@ -69,8 +69,8 @@
 
                                     </img>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownProfilButton">
-                                        <li><a class="dropdown-item" href="../connexion.php">Connexion</a></li>
-                                        <li><a class="dropdown-item" href="../inscription.php">Inscription</a></li>
+                                        <li><a class="dropdown-item" href="Connexion/connexion.php">Connexion</a></li>
+                                        <li><a class="dropdown-item" href="Inscription/inscription.php">Inscription</a></li>
                                     </ul>
                                 </div>
                             </div>

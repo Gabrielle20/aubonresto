@@ -3,6 +3,9 @@
 // use App\Controller\ArticleController;
 use App\Controller\IndexController;
 use App\Controller\ArticleController;
+use App\Controller\InscriptionController;
+use App\Controller\ConnexionController;
+use App\Controller\PanierController;
 
 
 if (isset($_GET["page"]) && !empty($_GET["page"])) {
@@ -53,6 +56,31 @@ if (isset($_GET["page"]) && !empty($_GET["page"])) {
 
                 }
             }
+        break;
+
+        case 'login':
+            if (isset($_GET['action'])){
+                $result = json_encode((new ConnexionController())->login($_POST));
+                echo $result;
+            }
+            else{
+                (new ConnexionController())->index();
+            }
+        break;
+
+        case 'register':
+            if (isset($_GET['action'])){
+                $result = json_encode((new InscriptionController())->register($_POST));
+                return $result;
+            }
+            else{
+                (new InscriptionController())->index();
+            }
+        break;
+
+        case 'panier':
+            (new PanierController())->index();
+            break;
     }
 }
 else{

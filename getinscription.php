@@ -1,8 +1,7 @@
 <?php
 include_once 'functions.php';
 include_once './class/bdd/connexionbdd.php';
-include_once './class/inscription/forminscription.php';
-
+use App\FormInscription;
 //----------------------------------------------------------------------------------------------
 
 if(!empty($_POST)){
