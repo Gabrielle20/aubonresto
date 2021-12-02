@@ -57,6 +57,20 @@ class Article
     }
 
 
+    /**
+     * Récupère tous les produits
+     *
+     * @return void
+     */
+    public function getAll() {
+        $query = ("SELECT * FROM articles");
+        $result = mysqli_query($this->conn, $query);
+        $articles = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+        return $articles;
+    } 
+
+
 
     /**
      * Récupère tous les articles
@@ -171,12 +185,12 @@ class Article
      * @return void
      */
     public function deleteArticle(int $id) {
-        $sql = "DELETE FROM MyGuests WHERE id=3";
+        $sql = "DELETE FROM article WHERE id_article = $id";
 
         if ($this->conn->query($sql) === TRUE) {
         echo "L'article a bien été supprimé";
         } else {
-        echo "Error deleting record: " . $conn->error;
+        echo "Error deleting record: " . $this->conn->error;
         }
     }
 
