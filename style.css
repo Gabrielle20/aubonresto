@@ -71,3 +71,23 @@ body {
     margin-top: 2em;
 }
 
+/*********************************************************PAGE PAIEMENT************************************************/
+.btn{
+    margin-top: 50px;
+    margin-left: 250px;
+    margin-bottom: 50px;
+    width: 100px;
+}
+
+.container{
+    margin-top: 50px;
+    border: 1px solid #e28383;
+    border-radius: 10%;
+    background: linear-gradient(#e66465, #9198e5);
+    
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+}
