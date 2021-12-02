@@ -59,7 +59,6 @@
                             </button>
                             <div class="collapse navbar-collapse" id="navbarCollapse">
                                 <div class="navbar-nav">
-                                    <a href="#" class="nav-item nav-link active">Réserver une Table</a>
                                     <a href="../getarticles.php?articles=entrees" class="nav-item nav-link">Entrées</a>
                                     <a href="../getarticles.php?articles=plats" class="nav-item nav-link">Plats</a>
                                     <a href="../getarticles.php?articles=desserts" class="nav-item nav-link" tabindex="-1">Desserts</a>
