@@ -145,6 +145,13 @@ class Article
 
 
 
+    /**
+     * Modifier un article
+     *
+     * @param [type] $elt
+     * @param [type] $id
+     * @return void
+     */
     public function editArticle($elt, $id) {
         
         if (!empty($id)) {
@@ -183,7 +190,6 @@ class Article
             return $article;
         }
     }
-
 
 
 

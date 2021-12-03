@@ -214,17 +214,17 @@ class Panier
      * @param $type
      * @return void
      */
-    public function payOnline($type) {
+    // public function payOnline($type) {
 
-        if (!empty($type)) {
-            $type = $type['typeName'];
+    //     if (!empty($type)) {
+    //         $type = $type['typeName'];
     
     
-            if ($type !== null && $type === "en-ligne") {
-                $newURL = "../index.php";
-                header('Location: '.$newURL);
-                exit;
-            }
-        }
-    }
+    //         if ($type !== null && $type === "en-ligne") {
+    //             $newURL = "../getpaiement?paiement.php";
+    //             header('Location: '.$newURL);
+    //             exit;
+    //         }
+    //     }
+    // }
 }

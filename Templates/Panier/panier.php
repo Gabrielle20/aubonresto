@@ -77,33 +77,9 @@
                                                         <option value="en-ligne">Payer en ligne</option>
                                                         <option value="sur-place">Payer sur place</option>
                                                     </select>
-                                                    <!--<input type="text" id="typeName" class="form-control form-control-lg" size="17"
-                                                    placeholder="Cardholder's Name" />-->
+                                                    
                                                     <label class="form-label" for="typeName">Choix du paiement</label>
                                                 </div>
-
-                                                <!--<div class="form-outline form-white mb-4">
-                                                    <input type="text" id="typeText" class="form-control form-control-lg" siez="17"
-                                                    placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" />
-                                                    <label class="form-label" for="typeText">Numéro de carte</label>
-                                                </div>
-
-                                                <div class="row mb-4">
-                                                    <div class="col-md-6">
-                                                    <div class="form-outline form-white">
-                                                        <input type="text" id="typeExp" class="form-control form-control-lg"
-                                                        placeholder="MM/YYYY" size="7" id="exp" minlength="7" maxlength="7" />
-                                                        <label class="form-label" for="typeExp">Expiration</label>
-                                                    </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                    <div class="form-outline form-white">
-                                                        <input type="password" id="typeText" class="form-control form-control-lg"
-                                                        placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
-                                                        <label class="form-label" for="typeText">Cvv</label>
-                                                    </div>
-                                                    </div>
-                                                </div>-->
                                                 
                                                 <div class="row mb-4">
                                                     <div class="form-outline form-white">
@@ -120,13 +96,8 @@
                                                     <p class="mb-2"><?php if($panier !== null) { echo $panier['total_panier'];} else{ echo "0"; } ?> €</p>
                                                 </div>
     
-                                                <button type="submit" class="btn btn-info btn-block btn-lg">
-                                                    <div class="d-flex justify-content-between">
-                                                        <span><?php if($panier !== null) { echo $panier['total_panier']; }else {echo "0";} ?> €</span>
-                                                        <i class="fas fa-long-arrow-alt-right ms-2"></i>
-                                                    </div>
-                                                </button>
                                             </form>
+                                            <a href="../getpaiement.php?paiement" class="btn btn-info btn-block btn-lg"><?php if($panier !== null) { echo $panier['total_panier']; }else {echo "0";} ?> €</a>
 
 
                                         </div>
