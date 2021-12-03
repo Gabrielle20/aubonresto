@@ -26,12 +26,12 @@
                             <div class="text-center"  style="margin-bottom:1rem;">
                                 <?php
                                     if (!empty($_SESSION['id_user'])) {?>
-                                        <a href="../getarticles.php?edit=<?= $article['id_article'] ?>" class="btn btn-success text-center" style="width: 80%">Modifier</a>
+                                        <a href="../getarticles.php?articles=all&addcart=<?= $article['id_article'] ?>" class="btn btn-success text-center" style="width: 80%">Modifier</a>
                                         <br>
                                         <br>
                                 <?php }?>
                             </div>
-                            <a href="../getarticles.php?delete=<?= $article['id_article'] ?>" class="btn btn-secondary more" style="width: 80%" onclick="return confirm('Voulez-vous vraiment supprimer cet article ?')">Supprimer</a>
+                            <a href="../getarticles.php?articles=all&delete=<?= $article['id_article'] ?>" class="btn btn-secondary more" style="width: 80%">Supprimer</a>
                         </div>
                     </div>
                 </div>
