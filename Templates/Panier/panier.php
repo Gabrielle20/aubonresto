@@ -29,6 +29,7 @@
 
                                     <?php if($articles !== null) { ?>
                                         <?php foreach($articles as $article) : ?>
+                                            
                                             <div class="card mb-3">
                                                 <div class="card-body">
                                                     <div class="d-flex justify-content-between">

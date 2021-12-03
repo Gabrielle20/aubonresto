@@ -214,10 +214,10 @@ class Panier
      * @return void
      */
     public function getAllCommandes() {
-        $query = ("SELECT * FROM panier");
+        $query = ("SELECT * FROM panier INNER JOIN users ON panier.id_user = users.id_user");
         $result = mysqli_query($this->conn, $query);
-        $commandes = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        $orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-        return $commandes;
+        return $orders;
     }
 }
