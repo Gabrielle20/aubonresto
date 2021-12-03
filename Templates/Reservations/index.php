@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
     <?php include('./Templates/headHtml.html')?>
-    <body>
+<body>
     <?php include_once "./Templates/nav.php"; ?>
     <div style="display:flex; justify-content: space-between;">
         <div class="leftSideBar">
@@ -26,5 +26,5 @@
             <?php endforeach; ?>
         </div>
     </div>
-    </body>
+</body>
 </html>
