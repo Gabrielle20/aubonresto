@@ -65,8 +65,8 @@ class myPDF extends FPDF
             $this->Cell(20, 10, '', 0, 0, 'C');
             $this->Cell(20, 10, '', 0, 0, 'C');
             $this->Cell(40, 10, utf8_decode($article[0]['name_article']), 1, 0, 'C');
+            $this->Cell(40, 10, utf8_decode($article[0]['prix_article'].' euro'), 1, 0, 'C');
             $this->Cell(40, 10, utf8_decode($row[4]), 1, 0, 'C');
-            $this->Cell(40, 10, '', 1, 0, 'C');
             $this->Ln();
             $total += $row[3];
         }
