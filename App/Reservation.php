@@ -1,7 +1,15 @@
 <?php
 // namespace App;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-include_once "../class/bdd/connexionbdd.php"; 
+
+// require_once '../vendor/phpmailer/phpmailer/src/Exception.php';
+// require_once '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
+// require_once '../vendor/phpmailer/phpmailer//src/SMTP.php';
+
+include_once "./class/bdd/connexionbdd.php";
+include_once "./App/Mail.php"; 
 
 class Reservation
 {
@@ -55,11 +63,10 @@ class Reservation
                 $sqlInsertRes = ("INSERT INTO reservations (id_user, id_table, date_reservation) VALUES ('$this->id_user', '".$reservation['id_table']."', '".$reservation['date_reservation']."')");  
                 $result = $this->connbdd->getResults($this->conn, $sqlInsertRes);
 
-                //requete pour mettre a jour la le statut de la table a une date précise 
-                // $sqlUpdateTable = ("UPDATE tables SET statut_table = '0', date_reservee = '".$reservation['date_reservee']."' WHERE id_table = '".$reservation['id_table']."'");  
-                // $result = $this->connbdd->getResults($this->conn, $sqlUpdateTable); 
+                // $mail = new Mail($this->id_user); 
 
-                // $resOk = true; 
+                // $mail->sendMail(); 
+
 
                 echo("Votre réservation à bien été prise en compte ! "); 
             }
@@ -72,16 +79,26 @@ class Reservation
         }
         // $tab["reservation_validee"]=$resOk; 
         // return (json_encode($tab)); 
-        include "../forms/reservation/save.php"; 
+        include "./Templates/Reservations/save.php"; 
     }
 
     public function getReservations()
     {
-        $sqlGetRes = "SELECT * FROM reservations WHERE id_user = '".$this->id_user."'"; 
-        $resGetRes = mysqli_fetch_all(($this->connbdd->getResults($this->conn, $sqlGetRes)), MYSQLI_ASSOC); 
+        $sqlReservations = "SELECT * FROM reservations WHERE id_user = '".$this->id_user."'"; 
+        $sqlReservationResult = mysqli_query($this->conn, $sqlReservations);
+        $reservations = mysqli_fetch_all($sqlReservationResult, MYSQLI_ASSOC);
+        require_once "./Templates/Reservations/index.php"; 
+        return($reservations); 
         
-        $tabreservations = $resGetRes[0];  
-        var_dump($tabreservations); 
-        // return()
+        // var_dump($resGetRes); 
+        // if(!empty($resGetRes))
+        // {
+        //     return($resGetRes); 
+        //     require_once "../Templates/Reservations/index.php"; 
+        // }
+        // else
+        // {
+        //     return void() ; 
+        // }
     }
 }

@@ -1,6 +1,6 @@
 <?php
-$pathRoot = $_SERVER['DOCUMENT_ROOT'];
-require_once $pathRoot."../class/bdd/connexionbdd.php";
+
+require_once "./class/bdd/connexionbdd.php";
 
 class Panier
 {
@@ -232,10 +232,10 @@ class Panier
      * @param $type
      * @return void
      */
-    public function payOnline($type) {
+     public function payOnline($type) {
 
-        if (!empty($type)) {
-            $type = $type['typeName'];
+         if (!empty($type)) {
+             $type = $type['typeName'];
     
     
             if ($type !== null && $type === "en-ligne") {

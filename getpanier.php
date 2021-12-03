@@ -66,7 +66,7 @@ if (!empty($_SESSION['id_user'])) {
             $panier = null;
         }
 
-        $type = $data->payOnline($_POST);
+        // $type = $data->payOnline($_POST);
         
 
         include ROOT."/Templates/Panier/panier.php";
