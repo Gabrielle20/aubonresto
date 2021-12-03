@@ -227,9 +227,8 @@ class Panier
     
 
     /**
-     * Redirect vers choix de paiement
+     * Récupérer toutes les commandes
      *
-     * @param $type
      * @return void
      */
      public function payOnline($type) {

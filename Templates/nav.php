@@ -1,15 +1,9 @@
 <?php
-    $pathRoot = $_SERVER['DOCUMENT_ROOT'];
-    require_once $pathRoot."../class/bdd/connexionbdd.php";
-    include_once $pathRoot."../App/Panier.php";
+    include_once "./nbrpanier.php";
 
-    $connexionBDD = New ConnexionBDD ();
-    $conn = $connexionBDD->OpenCon();
 
     if (!empty($_SESSION['id_user']))
     {
-        $data = new Panier();
-        $count = $data->getNbrCartElements();
     
 ?>
 
@@ -62,6 +56,7 @@
                             </button>
                             <div class="collapse navbar-collapse" id="navbarCollapse">
                                 <div class="navbar-nav">
+                                    <a href="./reservation.php" class="nav-item nav-link active">Réserver une Table</a>
                                     <a href="../getarticles.php?articles=entrees" class="nav-item nav-link">Entrées</a>
                                     <a href="../getarticles.php?articles=plats" class="nav-item nav-link">Plats</a>
                                     <a href="../getarticles.php?articles=desserts" class="nav-item nav-link" tabindex="-1">Desserts</a>

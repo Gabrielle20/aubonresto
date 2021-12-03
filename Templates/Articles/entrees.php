@@ -11,10 +11,10 @@
             <h2>Nos entrées : </h2>
         </div>
 
-        <div class="row cardMoment">
+        <div class="cardMoment" style="display:flex; justify-content: space-around; align-items:center;">
 
             <?php foreach($articles as $article) : ?>
-                <div class="col sm-4">
+                <div style="max-with:30%;">
                     <div class="card" style="max-width: 100%; margin: 0 auto;">
                         <img src="./Images/assortiment.jpg" class="card-img-top imageCard" alt="assortiment">
                         <div class="card-body">

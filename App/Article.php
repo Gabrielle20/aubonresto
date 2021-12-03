@@ -22,6 +22,40 @@ class Article
     }
 
 
+    public function getType() {
+        return $type;
+    }
+
+    public function setType() {
+        $this->type = $type;
+    }
+
+    public function getPrix() {
+        return $prix;
+    }
+
+    public function setPrix(int $prix) {
+        $this->prix = $prix;
+    }
+
+
+    public function getName() {
+        return $name;
+    }
+
+    public function setName(string $name) {
+        $this->name = $name;
+    }
+
+
+    public function getDescription() {
+        return $description;
+    }
+
+    public function setDescription(string $description) {
+        $this->description = $description;
+    }
+
 
     /**
      * Récupère tous les produits
@@ -144,18 +178,17 @@ class Article
     }
 
 
-
     /**
-     * Modifier un article
+     * Éditer un article
      *
      * @param [type] $elt
      * @param [type] $id
      * @return void
      */
     public function editArticle($elt, $id) {
-        
+
         if (!empty($id)) {
-            
+
             $query = ("SELECT * FROM articles WHERE id_article = $id");
             $result = mysqli_query($this->conn, $query);
             $article = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -163,17 +196,17 @@ class Article
             if (!empty($article)) {
                 $article = $article[0];
             }
-            
-            
+
+
             if (!empty($elt)) {
 
                 $name = $elt["name_article"];
                 $type = $elt["type_article"];
                 $prix = $elt["prix_article"];
                 $desc = $elt["description_article"];
-    
+
                 $query = "UPDATE articles SET name_article = '$name', type_article = '$type', prix_article = '$prix', description_article = '$desc' WHERE id_article = '$id'";
-                
+
                 if (mysqli_query($this->conn, $query)) {
                     echo "L'article a bien été créé";
 
@@ -200,7 +233,6 @@ class Article
      * @return void
      */
     public function deleteArticle(int $id) {
-        
         $sql = "DELETE FROM articles WHERE id_article = $id";
 
         if ($this->conn->query($sql) === TRUE) {
