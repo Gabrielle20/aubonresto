@@ -13,7 +13,6 @@
             <?php include('./Templates/sidebar.php');?>
         </div>
 
-
         <div class="row cardMoment" style="width:80%; flex-wrap: wrap; justify-content:space-around;">
             
             <?php foreach($articles as $article) : ?>
