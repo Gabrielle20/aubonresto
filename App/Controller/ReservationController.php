@@ -25,7 +25,7 @@ class ReservationController extends DefaultController
         ));
     }
 
-    public  function addReservation($idUser, $params){
+    public  function addReservation($params){
         $reservation = new Reservation($_SESSION['id_user']) ;
         $result = $reservation->addReservation($params);
 

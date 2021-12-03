@@ -81,11 +81,12 @@ class Reservation
         if(!empty($reservation))
         {
             
-            $disponible = $this->check_dispo_table($reservation['id_table'], $reservation['date_reservation']); 
+            $disponible = $this->check_dispo_table($reservation['id_table'], $reservation['date_reservation']);
+
             if($disponible)
             {
                 //requete pour inserer une reservation 
-                $sqlInsertRes = ("INSERT INTO reservations (id_user, id_table, date_reservation) VALUES ('$this->id_user', '".$reservation['id_table']."', '".$reservation['date_reservation']."')");  
+                $sqlInsertRes = ("INSERT INTO reservations (id_user, id_table, date_reservation) VALUES ('$this->id_user', '".$reservation['id_table']."', '".$reservation['date_reservation']."')");
                 $result = $this->connbdd->getResults($this->conn, $sqlInsertRes);
 
                 // $mail = new Mail($this->id_user); 

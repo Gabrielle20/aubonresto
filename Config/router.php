@@ -108,7 +108,7 @@ if (isset($_GET["page"]) && !empty($_GET["page"])) {
         break;
 
         case 'addReservation':
-            $result = (new ReservationController())->addReservation($_SESSION['id_user'],$_POST);
+            $result = (new ReservationController())->addReservation($_POST);
             echo json_encode($result);
         break;
 

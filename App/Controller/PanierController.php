@@ -59,7 +59,7 @@ class PanierController extends DefaultController
                                 $result = mysqli_query($conn, $query);
 
                                 $article = mysqli_fetch_all($result, MYSQLI_ASSOC);
-                                $results['articles'][] = $article[0];
+                                $results['articles'][] = isset($article[0])  ? $article[0] : $article;
                             }
 
 
