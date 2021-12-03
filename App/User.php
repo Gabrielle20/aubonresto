@@ -1,7 +1,6 @@
 <?php
 
-namespace App;
-
+require_once "./class/bdd/connexionbdd.php";
 class User
 {
     private string $name;
@@ -9,71 +8,55 @@ class User
     private string $email;
     private int $telephone;
     private string $adresse;
-    private $mdp;
-    private $role;
 
+    private $ConnexionBDD;
+    private $conn;
 
+    public function __construct() {
+        $this->ConnexionBDD = New ConnexionBDD ();
+        $this->conn = $this->ConnexionBDD->OpenCon();
 
-    public function getName() {
-        return $name;
-    }
-
-    public function setName(string $name) {
-        $this->name = $name;
     }
 
 
-    public function getFirstname() {
-        return $firstname;
-    }
+    public function editProfil($row, $idUser) {
 
-    public function setFirstname(string $firstname) {
-        $this->firstname = $firstname;
-    }
+        if (!empty($idUser)) {
 
+            $query = ("SELECT * FROM users WHERE id_user = $idUser");
+            $result = mysqli_query($this->conn, $query);
+            $infosUser = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-    public function getEmail() {
-        return $email;
-    }
-
-    public function setEmail() {
-        $this->email = $email;
-    }
+            if (!empty($infosUser)) {
+                $infosUser = $infosUser[0];
+            }
 
 
-    public function getTelephone() {
-        return $telephone;
-    }
+            if (!empty($row)) {
 
-    public function setTelephone(int $telephone) {
-        $this->getTelephone = $telephone;
-    }
+                $name = $row["name"];
+                $firstname = $row["firstname"];
+                $phone = $row["phone"];
+                $address = $row["address"];
+                $email = $row["email"];
 
+                $query = "UPDATE users SET name_user = '$name', firstname_user = '$firstname', phone_user = '$phone', address_user = '$address', email_user= '$email' WHERE id_user = '$idUser'";
 
-    public function getAdresse() {
-        return $adresse;
-    }
-
-    public function setAdresse(string $adresse) {
-        $this->adresse = $adresse;
-    }
+                if (mysqli_query($this->conn, $query)) {
+                    echo "L'article a bien été créé";
 
 
-    public function getMdp() {
-        return $mdp;
-    }
+                    $newURL = "../infosUser.php";
+                    header('Location: '.$newURL);
+                    exit;
 
-    public function setMdp() {
-        $this->mdp = $mdp;
-    }
+                } else {
+                    echo "Error: " . $query . "<br>" . mysqli_error($this->conn);
+                }
+            }
 
-
-    public function getRole() {
-        return $role;
-    }
-
-    public function setRole() {
-        $this->role = $role;
+            return $infosUser;
+        }
     }
 
 }
