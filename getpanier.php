@@ -13,11 +13,6 @@ $conn = $connexionBDD->OpenCon();
 
 
 if (!empty($_SESSION['id_user'])) {
-    // ajouter des éléments au panier
-    // if (!empty($_GET) && isset($_GET['addcart']) && is_numeric($_GET['addcart']) && !isset($_GET['removearticle'])) {
-    //     $data->addToPanier($_GET['addcart']);
-    // }
-
     
     // récupérer le panier
     if (!empty($_GET) && isset($_GET['getpanier']) && !isset($_GET['removearticle']) ) {
