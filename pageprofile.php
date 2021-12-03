@@ -15,10 +15,14 @@ if(isset($_SESSION["id_user"])){
         <div class="leftSideBar">
             <?php include('./Templates/sidebar.php');?>
         </div>
+        <div class="infoUserBody">
+            <img class="imgProfil" src="./images/bonAppetit.jpg">
 
+        </div>
     </div>
 <?php }else{
     header('Location: /index.php');
 } ?>
+<?php include "./Templates/footerHtml.html"?>
 </body>
 </html>

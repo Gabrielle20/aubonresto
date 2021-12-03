@@ -57,5 +57,7 @@ if(isset($_SESSION["id_user"])){
 <?php }else{
     header('Location: /index.php');
 } ?>
+
+<?php include "./Templates/footerHtml.html"?>
 </body>
 </html>

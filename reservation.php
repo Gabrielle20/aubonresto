@@ -5,4 +5,6 @@ if(!empty($_SESSION['id_user']))
 {
     $reservation = new Reservation($_SESSION['id_user']) ; 
     $reservation->addReservation($_POST); 
+}else{
+    header('Location: /RedirectionReservation.php');
 }

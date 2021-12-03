@@ -123,10 +123,6 @@ $ConnexionBDD = New ConnexionBDD ();// Appel de la class
         });
     });
 </script>
-
-<?php include "./Templates/footerHtml.html"?>
-</body>
-
 <?php include "./Templates/footerHtml.html"?>
 </body>
 

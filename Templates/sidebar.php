@@ -9,9 +9,9 @@ if ($_SESSION['type_user']=='user') :?>
         <div class="sidebarBody text-dark vh-100">
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
-                <li> <a href="infosUser.php" class="nav-link text-white sidebar"> <i class="fa fa-dashboard"></i><span class="ms-2">Profil</span> </a> </li>
-                <li> <a href="#" class="nav-link text-white sidebar"> <i class="fa fa-dashboard"></i><span class="ms-2">Mes réservations</span> </a> </li>
-                <li> <a href="#" class="nav-link text-white sidebar"> <i class="fa fa-dashboard"></i><span class="ms-2">Mes commandes</span> </a> </li>
+                <li> <a href="infosUser.php" class="nav-link sidebar"> <i class="fa fa-dashboard"></i><span class="ms-2">Profil</span> </a> </li>
+                <li> <a href="../mes_reservations.php" class="nav-link sidebar"> <i class="fa fa-dashboard"></i><span class="ms-2">Mes réservations</span> </a> </li>
+                <li> <a href="#" class="nav-link sidebar"> <i class="fa fa-dashboard"></i><span class="ms-2">Mes commandes</span> </a> </li>
             </ul>
         </div>
     </div>
@@ -27,10 +27,10 @@ if ($_SESSION['type_user']=='admin') :?>
         <div class="sidebarBody text-dark vh-100">
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
-                <li> <a href="infosUser.php" class="nav-link text-white sidebar"> <i class="fa fa-dashboard"></i><span class="ms-2">Profil</span> </a> </li>
-                <li> <a href="#" class="nav-link text-white sidebar"> <i class="fa fa-dashboard"></i><span class="ms-2">Liste des commandes</span> </a> </li>
-                <li> <a href="../getarticles.php?articles=all" class="nav-link text-white sidebar"> <i class="fa fa-dashboard"></i><span class="ms-2">Liste des Produits</span> </a> </li>
-                <li> <a href="../getarticles.php?articles=new" class="nav-link text-white sidebar"> <i class="fa fa-dashboard"></i><span class="ms-2">Ajouter un produit</span> </a> </li>
+                <li> <a href="infosUser.php" class="nav-link sidebar"> <i class="fa fa-dashboard"></i><span class="ms-2">Profil</span> </a> </li>
+                <li> <a href="#" class="nav-link sidebar"> <i class="fa fa-dashboard"></i><span class="ms-2">Liste des commandes</span> </a> </li>
+                <li> <a href="../getarticles.php?articles=all" class="nav-link sidebar"> <i class="fa fa-dashboard"></i><span class="ms-2">Liste des Produits</span> </a> </li>
+                <li> <a href="../getarticles.php?articles=new" class="nav-link sidebar"> <i class="fa fa-dashboard"></i><span class="ms-2">Ajouter un produit</span> </a> </li>
             </ul>
         </div>
     </div>
