@@ -1,5 +1,5 @@
 
-<div style="width:60%; margin:0 auto;">
+<div style="width:100%; margin-left:300px">
     <div class="selecMoment text-center card-title">
         <h2>Nouvel Article </h2>
     </div>

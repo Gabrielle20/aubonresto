@@ -115,7 +115,17 @@ class Reservation
         $sqlReservations = "SELECT * FROM reservations WHERE id_user = '".$this->id_user."'"; 
         $sqlReservationResult = mysqli_query($this->conn, $sqlReservations);
         $reservations = mysqli_fetch_all($sqlReservationResult, MYSQLI_ASSOC);
-        require_once "./Templates/Reservations/index.php"; 
         return($reservations);
+        
+        // var_dump($resGetRes); 
+        // if(!empty($resGetRes))
+        // {
+        //     return($resGetRes); 
+        //     require_once "../Templates/Reservations/index.php"; 
+        // }
+        // else
+        // {
+        //     return void() ; 
+        // }
     }
 }

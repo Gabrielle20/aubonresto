@@ -45,6 +45,24 @@ class ArticleController extends DefaultController
 
     }
 
+    public function deleteArtcile($id){
+        $result = (new Article())->deleteArticle($id);
+        echo $result;
+    }
+
+    public function editIndex($id){
+        $article = (new Article)->getArticle($id);
+        $this->render('Articles/edit',array(
+            "article" => $article[0]
+        ));
+    }
+
+    public function editArticle($values, $id){
+        $result = (new Article())->editArticle($values, $id);
+        echo $result;
+
+    }
+
 
 
 }

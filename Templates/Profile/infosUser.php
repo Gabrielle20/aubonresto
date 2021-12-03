@@ -1,4 +1,3 @@
-<div class="infoUserBody">
     <div class="container  d-flex justify-content-center">
         <div class="cardUser p-4">
             <div class=" image d-flex flex-column justify-content-center align-items-center">
@@ -20,5 +19,4 @@
             </div>
         </div>
     </div>
-</div>
 

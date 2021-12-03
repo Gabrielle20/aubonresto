@@ -112,6 +112,10 @@ if (isset($_GET["page"]) && !empty($_GET["page"])) {
             echo json_encode($result);
         break;
 
+        case 'allMyReserv':
+            (new ReservationController())->allMyReservIndex();
+        break;
+
         case 'pageProfile' :
             if(isset($_GET['articles'])){
                 switch ($_GET['articles']){
@@ -135,6 +139,18 @@ if (isset($_GET["page"]) && !empty($_GET["page"])) {
 
         case 'createFacture':
             header('Location: ../App/CreateFacture.php');
+        break;
+
+        case 'editPage':
+            (new ArticleController())->editIndex($_GET['edit']);
+
+        break;
+
+        case 'edit':
+        break;
+
+        case 'deleteArticle':
+            (new ArticleController())->deleteArtcile($_POST['idArticle']);
         break;
 
     }

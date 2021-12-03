@@ -2,7 +2,7 @@
 <div class="container">
     <div style="width:60%; margin:0 auto; margin-top:4rem;">
         <div class="selecMoment text-center card-title">
-            <h2>Nouvel Article </h2>
+            <h2>Edition de l'Article </h2>
         </div>
 
         <form action="" method="POST" class="new-article">

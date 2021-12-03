@@ -10,7 +10,7 @@ if ($_SESSION['type_user']=='user') :?>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li> <a href="?page=infosUser" class="nav-link text-white sidebar"> <i class="fa fa-dashboard"></i><span class="ms-2">Profil</span> </a> </li>
-                <li> <a href="../mes_reservations.php" class="nav-link sidebar"> <i class="fa fa-dashboard"></i><span class="ms-2">Mes réservations</span> </a> </li>
+                <li> <a href="?page=allMyReserv" class="nav-link sidebar"> <i class="fa fa-dashboard"></i><span class="ms-2">Mes réservations</span> </a> </li>
                 <li> <a href="#" class="nav-link text-white sidebar"> <i class="fa fa-dashboard"></i><span class="ms-2">Mes commandes</span> </a> </li>
             </ul>
         </div>

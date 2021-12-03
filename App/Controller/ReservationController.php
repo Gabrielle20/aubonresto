@@ -9,11 +9,20 @@ class ReservationController extends DefaultController
 {
 
     public function formIndex(){
-        $this->render("Reservations/save" );
+        if(!isset($_SESSION['id_user'])){
+            $this->render('Reservations/RedirectionReservation');
+        }
+        else{
+            $this->render("Reservations/save" );
+        }
     }
 
     public function allMyReservIndex(){
-        $this->render("Reservations/index" );
+        $reservation = new Reservation($_SESSION['id_user']);
+        $reservations_list = $reservation->getReservations();
+        $this->render("Reservations/index" , array(
+            'reservations'=> $reservations_list
+        ));
     }
 
     public  function addReservation($idUser, $params){

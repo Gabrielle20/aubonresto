@@ -28,8 +28,8 @@
                                 </div>
 
                                     
-                                    <?php if($articles !== null) { ?>
-                                        <?php foreach($articles as $article) : ?>
+                                    <?php if($results['articles'] !== null) { ?>
+                                        <?php foreach($results['articles'] as $article) : ?>
                                             
                                             <div class="card mb-3">
                                                 <div class="card-body">

@@ -210,16 +210,13 @@ class Article
                     echo "L'article a bien été créé";
 
 
-                    $newURL = "../getarticles.php?articles=all";
-                    header('Location: '.$newURL);
-                    exit;
+                    return true;
 
                 } else {
-                    echo "Error: " . $sql . "<br>" . mysqli_error($this->conn);
+                    return false;
                 }
             }
 
-            return $article;
         }
     }
 
@@ -235,12 +232,11 @@ class Article
         $sql = "DELETE FROM articles WHERE id_article = $id";
 
         if ($this->conn->query($sql) === TRUE) {
-        echo "L'article a bien été supprimé";
+            return true;
         } else {
-        echo "Error deleting record: " . $this->conn->error;
+            return false;
         }
 
-        return $this->getAll();
     }
 
 }
