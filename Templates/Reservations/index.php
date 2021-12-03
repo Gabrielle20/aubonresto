@@ -26,5 +26,6 @@
             <?php endforeach; ?>
         </div>
     </div>
+    <?php include "./Templates/footerHtml.html"?>
 </body>
 </html>

@@ -43,7 +43,13 @@ class User
                 $query = "UPDATE users SET name_user = '$name', firstname_user = '$firstname', phone_user = '$phone', address_user = '$address', email_user= '$email' WHERE id_user = '$idUser'";
 
                 if (mysqli_query($this->conn, $query)) {
-                    echo "L'article a bien été créé";
+                    echo "Les informations ont bien été mises à jour";
+
+                    $_SESSION['name_user'] = $name;
+                    $_SESSION['firstname_user'] = $firstname;
+                    $_SESSION['email_user'] = $email;
+                    $_SESSION['phone_user'] = $phone;
+                    $_SESSION['address_user'] = $address;
 
 
                     $newURL = "../infosUser.php";
