@@ -209,22 +209,15 @@ class Panier
 
 
     /**
-     * Redirect vers choix de paiement
+     * Récupérer toutes les commandes
      *
-     * @param $type
      * @return void
      */
-    // public function payOnline($type) {
+    public function getAllCommandes() {
+        $query = ("SELECT * FROM panier");
+        $result = mysqli_query($this->conn, $query);
+        $commandes = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-    //     if (!empty($type)) {
-    //         $type = $type['typeName'];
-    
-    
-    //         if ($type !== null && $type === "en-ligne") {
-    //             $newURL = "../getpaiement?paiement.php";
-    //             header('Location: '.$newURL);
-    //             exit;
-    //         }
-    //     }
-    // }
+        return $commandes;
+    }
 }

@@ -15,7 +15,7 @@ $conn = $connexionBDD->OpenCon();
 if (!empty($_SESSION['id_user'])) {
     
     // récupérer le panier
-    if (!empty($_GET) && isset($_GET['getpanier']) && !isset($_GET['removearticle']) ) {
+    if (!empty($_GET) && isset($_GET['getpanier']) && !isset($_GET['removearticle']) && !isset($_GET['orders']) ) {
         $panierecup = $data->getCartElements();
 
         if (!empty($panierecup) && $panierecup !== null) {
@@ -72,6 +72,13 @@ if (!empty($_SESSION['id_user'])) {
     if (!empty($_GET) && isset($_GET['getpanier']) && isset($_GET['removearticle']) && is_numeric($_GET['removearticle'])  ) {
         
         $data->removeFromPanier($_GET['panierid'], $_GET['removearticle']);
+    }
+
+
+    if(!empty($_GET) && isset($_GET['orders'])) {
+        $orders = $data->getAllCommandes();
+
+        include ROOT."/Templates/Panier/all.php";
     }
 }
 
