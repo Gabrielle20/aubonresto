@@ -93,6 +93,15 @@ if (!empty($_SESSION['id_user'])) {
         include ROOT."/Templates/Articles/new.php";
     }
 
+    // Modification d'un article
+    if (!empty($_GET) && isset($_GET['edit']) && is_numeric($_GET['edit'])) {
+        $article = $data->editArticle($_POST, $_GET['edit']);
+
+        include ROOT."/Templates/Articles/edit.php";
+    }
+
+
+
 
     // liste de tous les articles en admin
     if (!empty($_GET) && isset($_GET['articles']) && $_GET['articles'] === "all") {
@@ -103,7 +112,7 @@ if (!empty($_SESSION['id_user'])) {
 
 
     // supprimer un article
-    if (!empty($_GET) && isset($_GET['articles']) && isset($_GET['delete']) && is_numeric($_GET['delete'])) {
+    if (!empty($_GET) && isset($_GET['delete']) && is_numeric($_GET['delete'])) {
         
         $articles = $data->deleteArticle($_GET['delete']);
 

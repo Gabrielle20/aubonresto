@@ -179,19 +179,69 @@ class Article
 
 
     /**
+     * Éditer un article
+     *
+     * @param [type] $elt
+     * @param [type] $id
+     * @return void
+     */
+    public function editArticle($elt, $id) {
+
+        if (!empty($id)) {
+
+            $query = ("SELECT * FROM articles WHERE id_article = $id");
+            $result = mysqli_query($this->conn, $query);
+            $article = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+            if (!empty($article)) {
+                $article = $article[0];
+            }
+
+
+            if (!empty($elt)) {
+
+                $name = $elt["name_article"];
+                $type = $elt["type_article"];
+                $prix = $elt["prix_article"];
+                $desc = $elt["description_article"];
+
+                $query = "UPDATE articles SET name_article = '$name', type_article = '$type', prix_article = '$prix', description_article = '$desc' WHERE id_article = '$id'";
+
+                if (mysqli_query($this->conn, $query)) {
+                    echo "L'article a bien été créé";
+
+
+                    $newURL = "../getarticles.php?articles=all";
+                    header('Location: '.$newURL);
+                    exit;
+
+                } else {
+                    echo "Error: " . $sql . "<br>" . mysqli_error($this->conn);
+                }
+            }
+
+            return $article;
+        }
+    }
+
+
+
+    /**
      * Supprimer un article
      *
      * @param integer $id
      * @return void
      */
     public function deleteArticle(int $id) {
-        $sql = "DELETE FROM article WHERE id_article = $id";
+        $sql = "DELETE FROM articles WHERE id_article = $id";
 
         if ($this->conn->query($sql) === TRUE) {
         echo "L'article a bien été supprimé";
         } else {
         echo "Error deleting record: " . $this->conn->error;
         }
+
+        return $this->getAll();
     }
 
 }
