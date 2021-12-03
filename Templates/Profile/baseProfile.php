@@ -5,10 +5,10 @@ use App\FormConnexion;
 if(isset($_SESSION["id_user"])){?>
 
     <div class="row">
-        <div class="leftSideBar">
+        <div class="leftSideBar ">
             <?php include(ROOT.'/Templates/sidebar.php');?>
         </div>
-        <div class="body">
+        <div class="contentProfile">
             <?= $content ?>
         </div>
     </div>

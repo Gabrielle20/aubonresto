@@ -44,10 +44,10 @@
     </div>
     <div class="row">
         <div class="col sm-6">
-            <a class="btn btn-outline-success reservBtn" href="#">🍴Envie de se faire plaisir avant le 15 Janvier ?🍴 </br> Réservez donc ici pour manger sur place</a>
+            <a class="btn btn-outline-success reservBtn" href="?page=saveReservation">🍴Envie de se faire plaisir avant le 15 Janvier ?🍴 </br> Réservez donc ici pour manger sur place</a>
         </div>
         <div class="col sm-6">
-            <a class="btn btn-outline-info reservBtn" href="#">🍴Pas la possibilité de manger sur place?🍴 </br> Commander  donc ici pour manger sur place</a>
+            <a class="btn btn-outline-info reservBtn" href="?page=getArticles&articles=entrees">🍴Pas la possibilité de manger sur place?🍴 </br> Commander donc ici pour emporter</a>
         </div>
     </div>
 

@@ -1,12 +1,12 @@
 <?php
-session_start();
+use Core\Database\ConnexionBDD;
 
-require_once ('../Core/Database/ConnexionBddForPdf.php');
-require_once($_SERVER['DOCUMENT_ROOT']. '/vendor/fpdf/fpdf/original/fpdf.php');
+require_once(ROOT.'/vendor/fpdf/fpdf/original/fpdf.php');
 
 
 class myPDF extends FPDF
 {
+
 
     function header()
     {
@@ -17,7 +17,7 @@ class myPDF extends FPDF
         $this->Cell(276, 10, ' Au bon resto', 0, 0, 'C');
         $this->Ln(20);
     }
-    
+
     function footer()
     {
         $this->Image($_SERVER['DOCUMENT_ROOT'] . '\images\bonAppetit.jpg', 100, 100, 100);
@@ -28,15 +28,16 @@ class myPDF extends FPDF
 
         $this->Cell(0, 10, date('d-m-Y H:i:s', time()), 0, 0, 'C');
     }
-    
+
     function headerTable()
     {
         $this->SetFont('Times', 'B', 12);
         $this->Cell(20, 10, '', 0, 0, 'C');
         $this->Cell(20, 10, '', 0, 0, 'C');
         $this->Cell(20, 10, '', 0, 0, 'C');
-        $this->Cell(40, 10, 'Articles', 1, 0, 'C');
-        $this->Cell(40, 10, 'Prix', 1, 0, 'C');
+        $this->Cell(20, 10, '', 0, 0, 'C');
+        $this->Cell(20, 10, 'Articles', 1, 0, 'C');
+        $this->Cell(20, 10, 'Prix', 1, 0, 'C');
         $this->Cell(40, 10, 'statut panier', 1, 0, 'C');
         $this->Cell(40, 10, 'total panier', 1, 0, 'C');
         $this->Ln();
@@ -46,7 +47,7 @@ class myPDF extends FPDF
     {
         $idUser = $_SESSION['id_user'];
 
-        $ConnexionBDD = new \Core\Database\ConnexionBddForPdf();
+        $ConnexionBDD = new ConnexionBDD();
         $conn = $ConnexionBDD->OpenCon();
 
         $this->SetFont('Times', '', 12);
@@ -55,46 +56,35 @@ class myPDF extends FPDF
         $result = $ConnexionBDD->getResults($conn, $stmt);
         $total = 0;
 
-
         while ($row = $result->fetch_row()) {
-            
-    
-        $articlesArray = unserialize($row[2]);
-        foreach ($articlesArray as $value)  {
-
-
-            $query = ("SELECT * FROM articles WHERE id_article = $value");
-            $result = mysqli_query($conn, $query);
-
-            $article = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-
-            
             $this->Cell(20, 10, '', 0, 0, 'C');
             $this->Cell(20, 10, '', 0, 0, 'C');
             $this->Cell(20, 10, '', 0, 0, 'C');
-            $this->Cell(40, 10, utf8_decode($article[0]['name_article']), 1, 0, 'C');
-            $this->Cell(40, 10, utf8_decode($article[0]['prix_article'].' euro'), 1, 0, 'C');
+            $this->Cell(20, 10, '', 0, 0, 'C');
+            $this->Cell(30, 10, $row[2], 1, 0, 'C');
             $this->Cell(40, 10, utf8_decode($row[4]), 1, 0, 'C');
+            $this->Cell(40, 10, '', 1, 0, 'C');
             $this->Ln();
             $total += $row[3];
         }
-        }
+
         $this->Cell(20, 10, '', 0, 0, 'C');
         $this->Cell(20, 10, '', 0, 0, 'C');
         $this->Cell(20, 10, '', 0, 0, 'C');
-        $this->Cell(30, 10, '', 0, 0, 'C');
-        $this->Cell(30, 10, '', 0, 0, 'C');
-        $this->Cell(30, 10, '', 0, 0, 'C');
+        $this->Cell(20, 10, '', 0, 0, 'C');
+        $this->Cell(20, 10, '', 0, 0, 'C');
+        $this->Cell(20, 10, '', 0, 0, 'C');
+        $this->Cell(20, 10, '', 0, 0, 'C');
         $this->Cell(30, 10, '', 0, 0, 'C');
         $this->Cell(40, 10, $total . ' Euro', 1, 0, 'C');
     }
 }
-
+ob_start();
 $pdf = new myPDF();
 $pdf->AliasNbPages();
 
 $pdf->AddPage('L', 'A4', 0);
 $pdf->headerTable();
 $pdf->viewTable();
-$pdf->Output();
+$pdf->Output('D','facture.pdf' );
+ob_end_flush();

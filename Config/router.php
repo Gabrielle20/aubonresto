@@ -8,6 +8,7 @@ use App\Controller\ConnexionController;
 use App\Controller\PanierController;
 use App\Controller\ReservationController;
 use App\Controller\ProfileController;
+use App\Controller\FactureController;
 
 
 if (isset($_GET["page"]) && !empty($_GET["page"])) {
@@ -130,6 +131,10 @@ if (isset($_GET["page"]) && !empty($_GET["page"])) {
 
         case 'infosUser':
             (new  ProfileController())->infoUser();
+        break;
+
+        case 'createFacture':
+            header('Location: ../App/CreateFacture.php');
         break;
 
     }
