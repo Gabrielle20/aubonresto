@@ -3,11 +3,6 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-
-// require_once '../vendor/phpmailer/phpmailer/src/Exception.php';
-// require_once '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
-// require_once '../vendor/phpmailer/phpmailer//src/SMTP.php';
-
 include_once "./class/bdd/connexionbdd.php";
 include_once "./App/Mail.php"; 
 
@@ -16,9 +11,17 @@ class Reservation
     //ATTRIBUTES
     private $conn; 
     private $connbdd; 
-    private $id_user; 
+    /**
+     * @var integer
+     */
+    private int $id_user; 
 
     //METHODS
+    /**
+     * __construct
+     *
+     * @param [type] $id_user
+     */
     public function __construct($id_user)
     {
         $this->id_user = $id_user;
@@ -27,12 +30,22 @@ class Reservation
         $this->conn = $this->connbdd->OpenCon();
         // var_dump($this->conn); 
     }
-
+    /**
+     * getId
+     *
+     * @return int
+     */
     public function getId()
     {
         return $this->id_user; 
     }
-
+    /**
+     * Undocumented function
+     *
+     * @param [int] $table
+     * @param [date] $date
+     * @return void
+     */
     public function check_dispo_table($table, $date)
     {
         $sqlDispo = "SELECT COUNT(*) FROM reservations WHERE id_table = '$table' AND date_reservation = '$date'"; 
@@ -48,7 +61,12 @@ class Reservation
             return true; 
         }
     }
-
+    /**
+     * addReservation
+     *
+     * @param [POST] $reservation
+     * @return void
+     */
     public function addReservation($reservation)
     {
         // $resOk = false; 
@@ -81,24 +99,17 @@ class Reservation
         // return (json_encode($tab)); 
         include "./Templates/Reservations/save.php"; 
     }
-
+    /**
+     * getReservations
+     *
+     * @return array
+     */
     public function getReservations()
     {
         $sqlReservations = "SELECT * FROM reservations WHERE id_user = '".$this->id_user."'"; 
         $sqlReservationResult = mysqli_query($this->conn, $sqlReservations);
         $reservations = mysqli_fetch_all($sqlReservationResult, MYSQLI_ASSOC);
         require_once "./Templates/Reservations/index.php"; 
-        return($reservations); 
-        
-        // var_dump($resGetRes); 
-        // if(!empty($resGetRes))
-        // {
-        //     return($resGetRes); 
-        //     require_once "../Templates/Reservations/index.php"; 
-        // }
-        // else
-        // {
-        //     return void() ; 
-        // }
+        return($reservations);
     }
 }
