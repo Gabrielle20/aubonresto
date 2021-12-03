@@ -1,13 +1,13 @@
 <html>
 <?php
-include('./Templates/headHtml.html');
 define("ROOT", __DIR__);
+include(ROOT.'/Templates/headHtml.html');
 
 ?>
 
 <body>
 
-<div><?php include('./Templates/nav.php');?></div>
+<div><?php include './Templates/nav.php';?></div>
 <div class="bannerTitle imgTitle"></div>
 
 <div class="container">
@@ -66,7 +66,7 @@ define("ROOT", __DIR__);
 
 
 
-<?php include('./Templates/footerHtml.html')?>
+<?php include './Templates/footerHtml.html'?>
 
 
 

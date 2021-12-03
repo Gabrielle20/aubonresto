@@ -1,6 +1,7 @@
 <?php
-    require_once "./class/bdd/connexionbdd.php";
-    include_once "./App/Panier.php";
+    $pathRoot = $_SERVER['DOCUMENT_ROOT'];
+    require_once $pathRoot."../class/bdd/connexionbdd.php";
+    include_once $pathRoot."../App/Panier.php";
 
     $connexionBDD = New ConnexionBDD ();
     $conn = $connexionBDD->OpenCon();

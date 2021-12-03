@@ -1,6 +1,6 @@
 <?php
-
-require_once "./class/bdd/connexionbdd.php";
+$pathRoot = $_SERVER['DOCUMENT_ROOT'];
+require_once $pathRoot."../class/bdd/connexionbdd.php";
 
 class Panier
 {
@@ -199,7 +199,7 @@ class Panier
         if (mysqli_query($this->conn, $update)) {
             echo "Article retiré du panier";
         } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($this->conn);
+            echo "Error: " . $update . "<br>" . mysqli_error($this->conn);
         }
 
         $newURL = "../getpanier.php?getpanier";
@@ -207,6 +207,24 @@ class Panier
         exit;
     }
 
+    public function updateStatusPanier() {
+        // récupérer l'utilisateur
+         $userId = $_SESSION['id_user'];
+
+        $statusArticle = $_POST['valide'];
+
+        $query = ("UPDATE panier SET statut_panier = '$statusArticle' WHERE id_user = $userId");
+        
+        if (mysqli_query($this->conn, $query)) {
+            // echo "Article ajouté au panier";
+            return true;
+        } else {
+            return false;
+            // echo "Error: " . $sql . "<br>" . mysqli_error($this->conn);
+        }
+    }
+
+    
 
     /**
      * Redirect vers choix de paiement
@@ -221,7 +239,7 @@ class Panier
     
     
             if ($type !== null && $type === "en-ligne") {
-                $newURL = "../index.php";
+                $newURL = "App/Paiement.php";
                 header('Location: '.$newURL);
                 exit;
             }

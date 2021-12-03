@@ -222,15 +222,48 @@ body {
 }
 
 .containerPaiement{
-    margin-top: 50px;
+    margin-top: 30px;
     border: 1px solid #e28383;
     border-radius: 50px;
     background: linear-gradient(#e66465, #9198e5);
     margin-left: 250px;
+    height: 550px;
 }
 
 .rowPaiement{
     display: flex;
     justify-content: center;
+}
 
+
+/********************************************* REMERCIEMENT *************************************************************/
+#remerciement{
+    text-align: center;
+    margin-top: 200px;
+}
+
+#remerciement h1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-bottom: 50px;
+}
+
+#btnFacture a{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: none;
+    color: #000;
+}
+
+#btnFacture a:hover{
+    color: rgb(255, 255, 255);
+}
+
+#btnFacture{
+    margin-left: 720px;
+    margin-top: 80px;
+}
+
+#btnFacture:hover{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: none;
+    background-color: #F79405;
 }

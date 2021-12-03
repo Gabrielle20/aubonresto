@@ -1,10 +1,11 @@
 <?php
 
 
+
 define("ROOT", __DIR__);
 
-include_once "./App/Panier.php";
-require_once "./class/bdd/connexionbdd.php";
+include_once ROOT."/App/Panier.php";
+require_once ROOT."/class/bdd/connexionbdd.php";
 
 
 $data = new Panier();
@@ -17,7 +18,6 @@ if (!empty($_SESSION['id_user'])) {
     // if (!empty($_GET) && isset($_GET['addcart']) && is_numeric($_GET['addcart']) && !isset($_GET['removearticle'])) {
     //     $data->addToPanier($_GET['addcart']);
     // }
-
     
     // récupérer le panier
     if (!empty($_GET) && isset($_GET['getpanier']) && !isset($_GET['removearticle']) ) {
@@ -77,6 +77,13 @@ if (!empty($_SESSION['id_user'])) {
     if (!empty($_GET) && isset($_GET['getpanier']) && isset($_GET['removearticle']) && is_numeric($_GET['removearticle'])  ) {
         
         $data->removeFromPanier($_GET['panierid'], $_GET['removearticle']);
+    }
+
+    if (!empty($_POST) && isset($_POST['valide'])) {
+
+        $data->updateStatusPanier($_POST['valide']);
+        header('Location: /remerciement.php');
+        var_dump($_POST['valide']);
     }
 }
 
