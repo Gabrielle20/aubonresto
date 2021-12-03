@@ -6,9 +6,6 @@
 // require 'src/PHPMailer.php';
 // require 'src/SMTP.php';
 
-// use PHPMailer\PHPMailer\PHPMailer;
-// use PHPMailer\PHPMailer\Exception;
-
 require_once './vendor/phpmailer/phpmailer/src/Exception.php';
 require_once './vendor/phpmailer/phpmailer/src/PHPMailer.php';
 require_once './vendor/phpmailer/phpmailer//src/SMTP.php';
@@ -143,32 +140,5 @@ class Mail
         } catch (Exception $e) {
             echo "Mailer Error: " . $mail->ErrorInfo;
         }
-
-
-//         $mail = new PHPMailer();
-//         $mail->isSMTP();
-//         $mail->Hostname = 'smtp.gmail.com';
-//         $mail->SMTPAuth = false;
-//         $mail->Username = 'noreply.aubonrestau@gmail.com'; 
-//         $mail->Password = 'Aubonrestau95';  
-//         $mail->SMTPSecure = 'ssl';
-//         $mail->Port = 465;
-
-//         $mail->setFrom($mail->Username, 'No Reply Aubonrestau');
-//         $mail->addReplyTo('noreply.aubonrestau@gmail.com', 'No Reply Aubonrestau');
-//         $mail->addAddress('bache.nour2@gmail.com', 'Nour');
-//         $mail->Subject = 'Test Email via phpmailer SMTP using PHPMailer';
-
-//         $mailContent = "<h1>Send HTML Email using SMTP in PHP</h1>
-//     <p>This is a test email I’m sending using SMTP mail server with PHPMailer.</p>";
-// $mail->Body = $mailContent;
-
-//         if($mail->send()){
-//             echo 'Message has been sent';
-//         }else{
-//             echo 'Message could not be sent.';
-//             echo 'Mailer Error: ' . $mail->ErrorInfo;
-//         }
-        // mail($this->to, $this->subject, $this->$message,  $this->headers); 
     }
 }
