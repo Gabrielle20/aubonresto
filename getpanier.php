@@ -14,10 +14,6 @@ $conn = $connexionBDD->OpenCon();
 
 
 if (!empty($_SESSION['id_user'])) {
-    // ajouter des éléments au panier
-    // if (!empty($_GET) && isset($_GET['addcart']) && is_numeric($_GET['addcart']) && !isset($_GET['removearticle'])) {
-    //     $data->addToPanier($_GET['addcart']);
-    // }
 
     // récupérer le panier
     if (!empty($_GET) && isset($_GET['getpanier']) && !isset($_GET['removearticle']) && !isset($_GET['orders'])) {
@@ -80,6 +76,9 @@ if (!empty($_SESSION['id_user'])) {
         header('Location: /remerciement.php');
         var_dump($_POST['valide']);
     }
+
+
+    // Récupérer toutes les commandes
     if (!empty($_GET) && isset($_GET['orders'])) {
         $orders = $data->getAllCommandes();
 
