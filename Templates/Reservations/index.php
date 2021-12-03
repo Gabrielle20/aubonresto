@@ -3,6 +3,10 @@
     <?php include('./Templates/headHtml.html')?>
     <body>
     <?php include_once "./Templates/nav.php"; ?>
+    <div style="display:flex; justify-content: space-between;">
+        <div class="leftSideBar">
+            <?php include('./Templates/sidebar.php');?>
+        </div>
         <div class="container">
             <div class="selecMoment text-center">
                 <h2>Vos Réservations</h2>
@@ -21,5 +25,6 @@
             </div>
             <?php endforeach; ?>
         </div>
+    </div>
     </body>
 </html>
