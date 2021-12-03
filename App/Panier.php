@@ -207,6 +207,24 @@ class Panier
         exit;
     }
 
+
+    /**
+     * Get all Commandes
+     *
+     * @return void
+     */
+    public function getAllCommandes() {
+        $query = ("SELECT * FROM panier INNER JOIN users ON panier.id_user = users.id_user");
+        $result = mysqli_query($this->conn, $query);
+        $orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+        return $orders;
+    }
+
+
+
+
+
     public function updateStatusPanier() {
         // récupérer l'utilisateur
          $userId = $_SESSION['id_user'];

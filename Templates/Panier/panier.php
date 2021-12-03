@@ -72,15 +72,7 @@
                                             <a href="#!" type="submit" class="text-white"><i class="fab fa-cc-mastercard fa-2x me-2"></i></a>
 
                                             <form class="mt-4" action="" method="POST">
-                                                <div class="form-outline form-white mb-4">
-                                                    <select name="typeName" id="typeName" class="form-control form-control-lg">
-                                                        <option value="">-</option>
-                                                        <option value="en-ligne">Payer en ligne</option>
-                                                        <option value="sur-place">Payer sur place</option>
-                                                    </select>
-                                                    
-                                                    <label class="form-label" for="typeName">Choix du paiement</label>
-                                                </div>
+                                                
                                                 
                                                 <div class="row mb-4">
                                                     <div class="form-outline form-white">

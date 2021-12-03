@@ -17,7 +17,7 @@ if(isset($_SESSION["id_user"])){
     $request=("SELECT * FROM users WHERE id_user='$session'");
     $data= $ConnexionBDD->getResults($conn,$request);
     while ($row = $data -> fetch_array(MYSQLI_NUM)) {
-
+        $id_user=$row[0];
         $name=$row[2];
         $firstname=$row[3];
         $email=$row[4];
@@ -47,7 +47,7 @@ if(isset($_SESSION["id_user"])){
                             <span class="idd"><strong>Adresse: </strong><?= $address; ?></span>
                         </div>
                         <div class=" d-flex mt-2">
-                            <button class="btn1 btn-dark">Edit Profile</button>
+                            <a href="../updateProfil.php?editUser=<?= $id_user ?>" class="btn1 btn-dark">Edit Profile</a>
                         </div>
                     </div>
                 </div>
